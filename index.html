@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartagena Entertainment</title>
+    <meta name="description" content="Tu Aventura de Lujo en el Corazón del Caribe. Yates exclusivos, mansiones de ensueño y experiencias inolvidables.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles & Variables -->
+    <style>
+      :root {
+        --color-navy: #0A0F14;
+        --color-prussian-blue: #102A43;
+        --color-teal-dark: #1F4257;
+        --color-keppel-dark: #3B8D8D;
+        --color-keppel: #59B4A3;
+        --color-keppel-light: #76D9C3;
+        --glass-background: rgba(20, 25, 30, 0.4);
+        --glass-border: rgba(255, 255, 255, 0.15);
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      .glowing-border {
+        position: relative;
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .glowing-border::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--color-keppel), transparent);
+        opacity: 0.6;
+      }
+      @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 25s linear infinite;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+      }
+      @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up {
+         animation: fade-in-up 0.4s ease-out forwards;
+      }
+      /* Fix for date picker icon color */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4"
+      }
+    }
+    </script>
+</head>
+<body class="bg-[var(--color-navy)]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
