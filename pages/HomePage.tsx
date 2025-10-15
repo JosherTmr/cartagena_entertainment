@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
     <>
       <div className="container mx-auto px-4">
         {/* Hero Section */}
-        <section className="text-center py-16 md:py-24">
+        <section className="text-center py-16 md:py-32">
             <AnimateOnScroll>
                 <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                     Tu Aventura de Lujo <br /> en el Corazón del Caribe
@@ -49,15 +49,24 @@ const HomePage: React.FC = () => {
                     Descubre yates exclusivos, mansiones de ensueño y experiencias inolvidables diseñadas solo para ti.
                 </p>
             </AnimateOnScroll>
-            <AnimateOnScroll delay={400}>
-              <div className="mt-12">
-                <BookingBar onSearch={handleSearch} />
-              </div>
-            </AnimateOnScroll>
         </section>
+      </div>
 
+      {/* Desktop Floating Sticky Bar */}
+      <div className="hidden md:block sticky top-24 z-30 -mt-24 px-4">
+        <AnimateOnScroll delay={400}>
+            <BookingBar onSearch={handleSearch} />
+        </AnimateOnScroll>
+      </div>
+      
+      {/* Mobile Fixed Bar */}
+      <div className="md:hidden">
+        <BookingBar onSearch={handleSearch} />
+      </div>
+      
+      <div className="container mx-auto px-4">
         {/* Featured Services Section */}
-        <section className="mb-24">
+        <section className="mb-24 mt-16 md:mt-20">
           <AnimateOnScroll>
             <h2 className="text-4xl font-bold text-center text-white mb-12">Servicios Destacados</h2>
           </AnimateOnScroll>
@@ -101,6 +110,9 @@ const HomePage: React.FC = () => {
         </section>
       </div>
       
+      {/* Spacer for the fixed mobile booking bar */}
+      <div className="h-24 md:hidden" />
+
       <ServiceModal service={selectedService} onClose={handleCloseModal} />
     </>
   );

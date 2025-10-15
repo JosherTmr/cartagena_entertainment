@@ -1,12 +1,14 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { services, destinations, Service } from '../data/database';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import ServiceCard from '../components/ServiceCard';
 import ServiceModal from '../components/ServiceModal';
+import BookingBar from '../components/BookingBar';
 
 const ServicesPage: React.FC = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [selectedService, setSelectedService] = useState<Service | null>(null);
 
     const { filteredServices, title, description } = useMemo(() => {
@@ -60,42 +62,67 @@ const ServicesPage: React.FC = () => {
     const handleCloseModal = () => {
         setSelectedService(null);
     };
+    
+    const handleSearch = (criteria: { destination: string; category: string; date: string }) => {
+        const queryParams = new URLSearchParams();
+        if (criteria.destination) queryParams.set('destination', criteria.destination);
+        if (criteria.category) queryParams.set('category', criteria.category);
+        if (criteria.date) queryParams.set('date', criteria.date);
+        navigate(`?${queryParams.toString()}`);
+    };
 
     return (
-        <div className="container mx-auto px-4 pb-16 sm:pb-24">
-            <section className="text-center mb-16">
-                <AnimateOnScroll>
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">{title}</h1>
-                </AnimateOnScroll>
-                <AnimateOnScroll delay={200}>
-                    <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
-                        {description}
-                    </p>
-                </AnimateOnScroll>
-            </section>
-
-            <section>
-                {filteredServices.length > 0 ? (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {filteredServices.map((service, index) => (
-                            <AnimateOnScroll key={service.id} delay={index * 100}>
-                                <ServiceCard service={service} onSelect={handleSelectService} />
-                            </AnimateOnScroll>
-                        ))}
-                    </div>
-                ) : (
-                    <AnimateOnScroll>
-                        <div className="text-center py-16">
-                            <i className="fas fa-search text-5xl text-[var(--color-keppel)] mb-4"></i>
-                            <h3 className="text-2xl font-semibold text-white">No se encontraron servicios</h3>
-                            <p className="text-white/70 mt-2">Intenta ajustar tus filtros de búsqueda para encontrar la experiencia perfecta.</p>
-                        </div>
-                    </AnimateOnScroll>
-                )}
-            </section>
+        <>
+            {/* Desktop Floating Sticky Bar */}
+            <div className="hidden md:block sticky top-24 z-30 py-4">
+                <div className="container mx-auto px-4">
+                    <BookingBar onSearch={handleSearch} />
+                </div>
+            </div>
             
-            <ServiceModal service={selectedService} onClose={handleCloseModal} />
-        </div>
+             {/* Mobile Fixed Bar */}
+            <div className="md:hidden">
+                <BookingBar onSearch={handleSearch} />
+            </div>
+
+            <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
+                <section className="text-center mb-16">
+                    <AnimateOnScroll>
+                        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">{title}</h1>
+                    </AnimateOnScroll>
+                    <AnimateOnScroll delay={200}>
+                        <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                            {description}
+                        </p>
+                    </AnimateOnScroll>
+                </section>
+
+                <section>
+                    {filteredServices.length > 0 ? (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {filteredServices.map((service, index) => (
+                                <AnimateOnScroll key={service.id} delay={index * 100}>
+                                    <ServiceCard service={service} onSelect={handleSelectService} />
+                                </AnimateOnScroll>
+                            ))}
+                        </div>
+                    ) : (
+                        <AnimateOnScroll>
+                            <div className="text-center py-16">
+                                <i className="fas fa-search text-5xl text-[var(--color-keppel)] mb-4"></i>
+                                <h3 className="text-2xl font-semibold text-white">No se encontraron servicios</h3>
+                                <p className="text-white/70 mt-2">Intenta ajustar tus filtros de búsqueda para encontrar la experiencia perfecta.</p>
+                            </div>
+                        </AnimateOnScroll>
+                    )}
+                </section>
+                
+                {/* Spacer for the fixed mobile booking bar */}
+                <div className="h-24 md:hidden" />
+                
+                <ServiceModal service={selectedService} onClose={handleCloseModal} />
+            </div>
+        </>
     );
 };
 
