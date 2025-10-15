@@ -5,7 +5,7 @@ const VideoBackground: React.FC = () => {
         <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--color-navy)]">
             <video
                 className="w-full h-full object-cover"
-                src="/video_hero.mp4"
+                src="/hero_video.mp4"
                 autoPlay
                 loop
                 muted
