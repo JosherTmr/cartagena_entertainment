@@ -13,7 +13,7 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center h-20">
                     <NavLink to="/" className="text-2xl font-bold text-white">
-                        {companyInfo.name}
+                        <img src="/Logo_CERP.png" alt={companyInfo.name} className="h-12" />
                     </NavLink>
                     
                     {/* Desktop Navigation */}
