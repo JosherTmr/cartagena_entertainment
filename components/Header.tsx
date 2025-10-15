@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { companyInfo } from '../data/database';
-import logo from '../assets/Logo_CERP.png';
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +13,7 @@ const Header: React.FC = () => {
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center h-20">
                     <NavLink to="/" className="text-2xl font-bold text-white">
-                        <img src={logo} alt={companyInfo.name} className="h-12" />
+                        {companyInfo.name}
                     </NavLink>
                     
                     {/* Desktop Navigation */}
