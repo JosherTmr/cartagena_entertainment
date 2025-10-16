@@ -7,11 +7,27 @@ import ServiceCard from '../components/ServiceCard';
 import ServiceModal from '../components/ServiceModal';
 import BookingBar from '../components/BookingBar';
 
+/**
+ * Componente funcional para la página de inicio.
+ *
+ * Esta página sirve como la principal puerta de entrada a la aplicación. Presenta:
+ * - Una sección "hero" con un eslogan atractivo.
+ * - Una barra de búsqueda de servicios (`BookingBar`) que redirige a la página de servicios.
+ * - Una lista de servicios destacados (`featuredServices`).
+ * - Una sección que resalta las fortalezas de la empresa ("¿Por Qué Elegirnos?").
+ * - Un modal para ver los detalles de un servicio seleccionado.
+ */
 const HomePage: React.FC = () => {
+  // --- Estado y Navegación ---
   const featuredServices = services.filter(s => s.featured).slice(0, 3);
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const navigate = useNavigate();
+  const [selectedService, setSelectedService] = useState<Service | null>(null); // Estado para el servicio seleccionado en el modal
+  const navigate = useNavigate(); // Hook para la navegación programática
 
+  /**
+   * Maneja la búsqueda de servicios desde el BookingBar.
+   * Construye una URL con parámetros de consulta y navega a la página de servicios.
+   * @param criteria - Objeto con los criterios de búsqueda (destino, categoría, fecha).
+   */
   const handleSearch = (criteria: { destination: string; category: string; date: string }) => {
     const queryParams = new URLSearchParams();
     if (criteria.destination) {
@@ -26,10 +42,17 @@ const HomePage: React.FC = () => {
     navigate(`/services?${queryParams.toString()}`);
   };
 
+  /**
+   * Establece el servicio seleccionado para mostrarlo en el modal.
+   * @param service - El objeto de servicio que el usuario ha seleccionado.
+   */
   const handleSelectService = (service: Service) => {
     setSelectedService(service);
   };
 
+  /**
+   * Cierra el modal de detalles del servicio al establecer el estado a null.
+   */
   const handleCloseModal = () => {
     setSelectedService(null);
   };

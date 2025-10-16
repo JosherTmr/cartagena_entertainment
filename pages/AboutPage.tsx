@@ -3,9 +3,21 @@ import GlassPanel from '../components/GlassPanel';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import { companyInfo } from '../data/database';
 
+/**
+ * Componente para la página "Sobre Nosotros".
+ *
+ * Esta página muestra información detallada sobre la empresa, incluyendo:
+ * - Nombre y descripción general.
+ * - Misión y visión.
+ * - La inspiración detrás de la marca.
+ * - Los valores fundamentales de la compañía.
+ *
+ * Toda la información se obtiene del objeto `companyInfo` en `data/database.ts`.
+ */
 const AboutPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 pb-16 sm:pb-24">
+      {/* Sección de Encabezado */}
       <section className="text-center mb-16">
         <AnimateOnScroll>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Sobre {companyInfo.name}</h1>

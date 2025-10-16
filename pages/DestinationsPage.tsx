@@ -5,9 +5,22 @@ import AnimateOnScroll from '../components/AnimateOnScroll';
 import BookingBar from '../components/BookingBar';
 import { destinations } from '../data/database';
 
+/**
+ * Componente para la página de visualización de destinos.
+ *
+ * Esta página muestra una lista de los destinos disponibles donde la empresa
+ * ofrece servicios. Incluye una barra de búsqueda que permite a los usuarios
+ * explorar los servicios filtrando por destino, categoría o fecha.
+ */
 const DestinationsPage: React.FC = () => {
   const navigate = useNavigate();
 
+  /**
+   * Maneja la búsqueda de servicios desde el BookingBar.
+   * Redirige al usuario a la página de servicios con los filtros de búsqueda
+   * aplicados como parámetros en la URL.
+   * @param criteria - Objeto con los criterios de búsqueda.
+   */
   const handleSearch = (criteria: { destination: string; category:string; date: string }) => {
     const queryParams = new URLSearchParams();
     if (criteria.destination) queryParams.set('destination', criteria.destination);

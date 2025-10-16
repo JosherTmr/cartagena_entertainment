@@ -6,11 +6,25 @@ import ServiceCard from '../components/ServiceCard';
 import ServiceModal from '../components/ServiceModal';
 import BookingBar from '../components/BookingBar';
 
+/**
+ * Componente para la página de visualización de servicios.
+ *
+ * Esta página muestra una lista de servicios que puede ser filtrada mediante
+ * parámetros en la URL (`?category=...` o `?destination=...`).
+ * Utiliza `useMemo` para calcular eficientemente los servicios a mostrar
+ * cada vez que cambian los parámetros de búsqueda.
+ */
 const ServicesPage: React.FC = () => {
+    // --- Hooks ---
     const location = useLocation();
     const navigate = useNavigate();
     const [selectedService, setSelectedService] = useState<Service | null>(null);
 
+    /**
+     * @property {Service[]} filteredServices - La lista de servicios filtrada según la URL.
+     * @property {string} title - El título a mostrar en la página, dinámico según el filtro.
+     * @property {string} description - La descripción que acompaña al título.
+     */
     const { filteredServices, title, description } = useMemo(() => {
         const queryParams = new URLSearchParams(location.search);
         const category = queryParams.get('category');
@@ -20,11 +34,12 @@ const ServicesPage: React.FC = () => {
         let newTitle = "Todos Nuestros Servicios";
         let newDescription = "Explora la gama completa de experiencias de lujo que hemos curado para ti.";
         
+        // Filtrar por destino si se proporciona el parámetro 'destination'
         if (destinationId) {
             const destination = destinations.find(d => d.id === destinationId);
             if (destination) {
                 const availableServiceIds = new Set(destination.seasonality.allYear);
-                // Simple check, not accounting for date ranges yet as it's complex without a date picker state here
+                // NOTA: La lógica de temporadas especiales es simplificada.
                 destination.seasonality.specialSeasons.forEach(ss => {
                     ss.specificServices.forEach(id => availableServiceIds.add(id));
                 });
@@ -34,10 +49,10 @@ const ServicesPage: React.FC = () => {
             }
         }
 
+        // Filtrar adicionalmente por categoría si se proporciona
         if (category) {
             servicesToShow = servicesToShow.filter(s => s.category === category);
-            // If we are already filtered by destination, we don't overwrite the title
-            if (!destinationId) {
+            if (!destinationId) { // Solo sobrescribir el título si no hay un filtro de destino
                 newTitle = `Servicios de ${category}`;
                 newDescription = `Explora nuestros servicios exclusivos en la categoría de ${category}.`;
             }
@@ -50,19 +65,30 @@ const ServicesPage: React.FC = () => {
         };
     }, [location.search]);
 
-    // Effect to scroll to top when filters change
+    // Efecto para hacer scroll hacia arriba cuando cambian los filtros.
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.search]);
 
+    /**
+     * Abre el modal con los detalles del servicio seleccionado.
+     * @param service - El servicio a mostrar.
+     */
     const handleSelectService = (service: Service) => {
         setSelectedService(service);
     };
 
+    /**
+     * Cierra el modal de detalles del servicio.
+     */
     const handleCloseModal = () => {
         setSelectedService(null);
     };
     
+    /**
+     * Maneja una nueva búsqueda desde el BookingBar, actualizando la URL.
+     * @param criteria - Los nuevos criterios de búsqueda.
+     */
     const handleSearch = (criteria: { destination: string; category: string; date: string }) => {
         const queryParams = new URLSearchParams();
         if (criteria.destination) queryParams.set('destination', criteria.destination);
