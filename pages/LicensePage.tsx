@@ -24,57 +24,102 @@ const LicensePage: React.FC = () => {
       </section>
 
       {/* Sección de Significado */}
-      <AnimateOnScroll>
-        <GlassPanel className="mb-12">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">¿Qué significa nuestra Licencia de Turismo para ti?</h2>
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <i className="fas fa-shield-alt text-4xl text-[var(--color-keppel)] mb-4"></i>
-                    <h3 className="text-xl font-bold mb-2">Seguridad y Confianza</h3>
-                    <p className="text-white/70">La licencia certifica que cumplimos con todos los requisitos legales, brindándote la tranquilidad de disfrutar de servicios seguros y confiables.</p>
-                </div>
-                <div>
-                    <i className="fas fa-balance-scale text-4xl text-[var(--color-keppel)] mb-4"></i>
-                    <h3 className="text-xl font-bold mb-2">Cumplimiento de Normas</h3>
-                    <p className="text-white/70">Nos aseguramos de operar bajo las leyes y regulaciones del sector turístico, promoviendo prácticas responsables y sostenibles.</p>
-                </div>
-                <div>
-                    <i className="fas fa-check-circle text-4xl text-[var(--color-keppel)] mb-4"></i>
-                    <h3 className="text-xl font-bold mb-2">Calidad Garantizada</h3>
-                    <p className="text-white/70">Nuestro compromiso con la excelencia está respaldado por certificaciones que avalan la calidad de nuestras experiencias.</p>
-                </div>
-            </div>
-        </GlassPanel>
-      </AnimateOnScroll>
+      <section className="mb-16">
+        <AnimateOnScroll>
+          <h2 className="text-4xl font-bold text-center text-white mb-12">¿Qué significa nuestra Licencia de Turismo para ti?</h2>
+        </AnimateOnScroll>
+        <div className="grid md:grid-cols-3 gap-8">
+            <AnimateOnScroll>
+                <GlassPanel className="text-center h-full p-8">
+                    <i className="fas fa-shield-alt text-5xl text-[var(--color-keppel)] mb-6"></i>
+                    <h3 className="text-2xl font-bold mb-3">Seguridad y Confianza</h3>
+                    <p className="text-white/80">La licencia certifica que cumplimos con todos los requisitos legales, brindándote la tranquilidad de disfrutar de servicios seguros y confiables.</p>
+                </GlassPanel>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={150}>
+                <GlassPanel className="text-center h-full p-8">
+                    <i className="fas fa-balance-scale text-5xl text-[var(--color-keppel)] mb-6"></i>
+                    <h3 className="text-2xl font-bold mb-3">Cumplimiento de Normas</h3>
+                    <p className="text-white/80">Nos aseguramos de operar bajo las leyes y regulaciones del sector turístico, promoviendo prácticas responsables y sostenibles.</p>
+                </GlassPanel>
+            </AnimateOnScroll>
+            <AnimateOnScroll delay={300}>
+                <GlassPanel className="text-center h-full p-8">
+                    <i className="fas fa-check-circle text-5xl text-[var(--color-keppel)] mb-6"></i>
+                    <h3 className="text-2xl font-bold mb-3">Calidad Garantizada</h3>
+                    <p className="text-white/80">Nuestro compromiso con la excelencia está respaldado por certificaciones que avalan la calidad de nuestras experiencias.</p>
+                </GlassPanel>
+            </AnimateOnScroll>
+        </div>
+      </section>
 
       {/* Sección de Importancia */}
-      <section className="grid md:grid-cols-2 gap-8 items-center mb-12">
-        <AnimateOnScroll>
-            <img src="https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Turismo Responsable" className="rounded-2xl shadow-lg w-full h-full object-cover" />
-        </AnimateOnScroll>
-        <AnimateOnScroll delay={150}>
-          <GlassPanel className="h-full">
-            <h2 className="text-2xl font-bold mb-4">¿Por qué es importante elegir una empresa con Licencia de Turismo?</h2>
-            <ul className="space-y-4 text-white/80">
-                <li className="flex items-start"><i className="fas fa-user-check text-[var(--color-keppel)] mt-1 mr-3"></i><span><strong className="text-white">Protección al Cliente:</strong> Te asegura que estás contratando servicios con una empresa legítima y profesional.</span></li>
-                <li className="flex items-start"><i className="fas fa-leaf text-[var(--color-keppel)] mt-1 mr-3"></i><span><strong className="text-white">Experiencias Responsables:</strong> Promovemos un turismo ético, respetando el entorno, las comunidades locales y la cultura de la región.</span></li>
-                <li className="flex items-start"><i className="fas fa-handshake text-[var(--color-keppel)] mt-1 mr-3"></i><span><strong className="text-white">Transparencia:</strong> Operamos con claridad y honestidad en cada uno de nuestros servicios, desde la reserva hasta la entrega final de la experiencia.</span></li>
-            </ul>
-          </GlassPanel>
-        </AnimateOnScroll>
+      <section className="mb-16">
+          <AnimateOnScroll>
+            <h2 className="text-4xl font-bold text-center text-white mb-12">¿Por qué elegir una empresa con Licencia de Turismo?</h2>
+          </AnimateOnScroll>
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+              <AnimateOnScroll className="h-full">
+                  <img src="https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Turismo Responsable" className="rounded-2xl shadow-lg w-full h-full object-cover" />
+              </AnimateOnScroll>
+              <div className="grid grid-rows-3 gap-8">
+                  <AnimateOnScroll delay={100}>
+                      <GlassPanel className="h-full flex items-center p-6">
+                          <i className="fas fa-user-check text-4xl text-[var(--color-keppel)] mr-6"></i>
+                          <div>
+                              <h3 className="text-xl font-bold mb-1 text-white">Protección al Cliente</h3>
+                              <p className="text-white/80">Te asegura que estás contratando servicios con una empresa legítima y profesional.</p>
+                          </div>
+                      </GlassPanel>
+                  </AnimateOnScroll>
+                  <AnimateOnScroll delay={200}>
+                      <GlassPanel className="h-full flex items-center p-6">
+                          <i className="fas fa-leaf text-4xl text-[var(--color-keppel)] mr-6"></i>
+                          <div>
+                              <h3 className="text-xl font-bold mb-1 text-white">Experiencias Responsables</h3>
+                              <p className="text-white/80">Promovemos un turismo ético, respetando el entorno, las comunidades locales y la cultura.</p>
+                          </div>
+                      </GlassPanel>
+                  </AnimateOnScroll>
+                  <AnimateOnScroll delay={300}>
+                      <GlassPanel className="h-full flex items-center p-6">
+                           <i className="fas fa-handshake text-4xl text-[var(--color-keppel)] mr-6"></i>
+                          <div>
+                              <h3 className="text-xl font-bold mb-1 text-white">Transparencia</h3>
+                              <p className="text-white/80">Operamos con claridad y honestidad en cada uno de nuestros servicios.</p>
+                          </div>
+                      </GlassPanel>
+                  </AnimateOnScroll>
+              </div>
+          </div>
       </section>
 
       {/* Sección de Compromiso */}
-      <AnimateOnScroll>
-        <GlassPanel className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Nuestro Compromiso</h2>
-            <div className="grid sm:grid-cols-3 gap-6">
-                <div className="flex items-center text-left bg-white/5 p-4 rounded-lg"><i className="fas fa-seedling text-3xl text-[var(--color-keppel)] mr-4"></i><p>Fomentar el desarrollo sostenible del turismo en la región.</p></div>
-                <div className="flex items-center text-left bg-white/5 p-4 rounded-lg"><i className="fas fa-globe-americas text-3xl text-[var(--color-keppel)] mr-4"></i><p>Respetar y preservar el entorno natural y cultural del Caribe.</p></div>
-                <div className="flex items-center text-left bg-white/5 p-4 rounded-lg"><i className="fas fa-star text-3xl text-[var(--color-keppel)] mr-4"></i><p>Ofrecer a nuestros clientes experiencias únicas, seguras y memorables, siempre respaldadas por nuestro cumplimiento legal.</p></div>
-            </div>
-        </GlassPanel>
-      </AnimateOnScroll>
+      <section className="mb-16">
+        <AnimateOnScroll>
+          <h2 className="text-4xl font-bold text-center text-white mb-12">Nuestro Compromiso</h2>
+        </AnimateOnScroll>
+        <div className="grid md:grid-cols-3 gap-8">
+          <AnimateOnScroll>
+            <GlassPanel className="h-full p-6 text-center">
+              <i className="fas fa-seedling text-4xl text-[var(--color-keppel)] mb-4"></i>
+              <p className="text-lg text-white/90">Fomentar el desarrollo sostenible del turismo en la región.</p>
+            </GlassPanel>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={150}>
+            <GlassPanel className="h-full p-6 text-center">
+              <i className="fas fa-globe-americas text-4xl text-[var(--color-keppel)] mb-4"></i>
+              <p className="text-lg text-white/90">Respetar y preservar el entorno natural y cultural del Caribe.</p>
+            </GlassPanel>
+          </AnimateOnScroll>
+          <AnimateOnScroll delay={300}>
+            <GlassPanel className="h-full p-6 text-center">
+              <i className="fas fa-star text-4xl text-[var(--color-keppel)] mb-4"></i>
+              <p className="text-lg text-white/90">Ofrecer a nuestros clientes experiencias únicas, seguras y memorables.</p>
+            </GlassPanel>
+          </AnimateOnScroll>
+        </div>
+      </section>
 
       {/* Sección de Cierre */}
       <section className="text-center">
