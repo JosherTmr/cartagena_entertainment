@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy, useCallback } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import VideoBackground from './components/VideoBackground';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import DestinationsPage from './pages/DestinationsPage';
-import AboutPage from './pages/AboutPage';
-import LicensePage from './pages/LicensePage';
 import BookingBar from './components/BookingBar';
+import StaticBackground from './components/StaticBackground';
+
+// Lazy load page components for code-splitting
+const HomePage = lazy(() => import('./pages/HomePage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const LicensePage = lazy(() => import('./pages/LicensePage'));
 
 const AppContent: React.FC = () => {
     const location = useLocation();
@@ -43,19 +45,22 @@ const AppContent: React.FC = () => {
         };
     }, [isHomePage]);
 
-    const handleSearch = () => {
+    const handleSearch = useCallback(() => {
         const queryParams = new URLSearchParams();
         if (destination) queryParams.set('destination', destination);
         if (category) queryParams.set('category', category);
         if (date) queryParams.set('date', date);
         navigate(`/services?${queryParams.toString()}`);
         setIsBookingModalOpen(false); // Close modal on search
-    };
+    }, [destination, category, date, navigate]);
 
 
     return (
         <div className="relative min-h-screen flex flex-col font-sans bg-[var(--color-navy)] text-white">
-            <VideoBackground />
+            {/* Render static background on all pages except home */}
+            {!isHomePage && <StaticBackground />}
+
+            {/* VideoBackground is rendered only in HomePage for performance */}
             <div className="relative z-10 flex flex-col flex-grow">
                 <Header 
                     onSearch={handleSearch} 
@@ -69,13 +74,15 @@ const AppContent: React.FC = () => {
                 />
 
                 <main className={`flex-grow ${!isHomePage ? 'pt-20' : ''}`}>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/services" element={<ServicesPage />} />
-                        <Route path="/destinations" element={<DestinationsPage />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/license" element={<LicensePage />} />
-                    </Routes>
+                    <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-white/80">Cargando...</div>}>
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/services" element={<ServicesPage />} />
+                            <Route path="/destinations" element={<DestinationsPage />} />
+                            <Route path="/about" element={<AboutPage />} />
+                            <Route path="/license" element={<LicensePage />} />
+                        </Routes>
+                    </Suspense>
                 </main>
                 <Footer />
             </div>

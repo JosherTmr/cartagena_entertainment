@@ -17,6 +17,27 @@ Sus características principales son:
 
 El componente `components/GlassPanel.tsx` es la implementación central de esta estética, sirviendo como base para la mayoría de los elementos de la interfaz.
 
+### 🎨 Paleta de Colores
+
+La identidad visual del proyecto se apoya en una paleta de colores inspirada en los tonos del Caribe: desde las aguas profundas hasta los verdes vibrantes de su vegetación.
+
+| Color          | Hex       | Variable CSS           | Rol Principal                               |
+|----------------|-----------|------------------------|---------------------------------------------|
+| Licorice       | `#211916` | `--color-navy`         | Color de fondo principal, oscuro y elegante.|
+| Keppel         | `#59b4a3` | `--color-keppel`       | Acento primario para botones y elementos UI.|
+| Mint           | `#57aa80` | `--color-keppel-light` | Estado hover, acentos secundarios.          |
+| Celadon        | `#adedcb` | N/A                    | Toques de luz, elementos muy destacados.    |
+| Hooker's Green | `#486b65` | N/A                    | Tonos de acento más oscuros y sobrios.      |
+
+### 🎨 Tipografía
+
+La tipografía juega un papel crucial en la identidad visual del sitio, combinando elegancia con legibilidad.
+
+| Fuente                    | Variable CSS       | Rol Principal                                                                 |
+|---------------------------|--------------------|-------------------------------------------------------------------------------|
+| Buckwheat TCSans-Painted  | `--font-display`   | Títulos principales y encabezados (`<h1>`, `<h2>`). Aporta un carácter único y lujoso. |
+| Poppins                   | `font-sans`        | Párrafos, texto de UI y contenido general. Garantiza una legibilidad excelente. |
+
 ## ✨ Tecnologías Utilizadas
 
 Este proyecto fue construido utilizando tecnologías web modernas para garantizar una experiencia de usuario fluida y un desarrollo eficiente.
@@ -27,7 +48,7 @@ Este proyecto fue construido utilizando tecnologías web modernas para garantiza
 -   **Enrutamiento:** [React Router DOM](https://reactrouter.com/)
 -   **Estilos CSS:** [Tailwind CSS](https://tailwindcss.com/) para un diseño "utility-first" rápido y responsivo.
 -   **Iconografía:** [Font Awesome](https://fontawesome.com/)
--   **Fuentes:** [Google Fonts (Poppins)](https://fonts.google.com/)
+-   **Fuentes:** [Google Fonts (Poppins)](https://fonts.google.com/) y fuentes personalizadas.
 
 ## 🚀 Guía de Inicio Rápido
 
@@ -93,7 +114,7 @@ Esta sección explica cómo extender y mantener el sitio web.
 -   `AnimateOnScroll.tsx`: Un componente de orden superior que anima a sus hijos cuando aparecen en la pantalla. Úsalo para añadir dinamismo a las páginas.
 -   `BookingBar.tsx`: La barra de búsqueda. Tiene una lógica compleja para mostrarse de forma diferente en el "hero" y en la cabecera fija.
 -   `Header.tsx`: Gestiona la navegación principal, el logo y la transición entre la cabecera transparente y la fija ("sticky").
--   `FeaturedCarousel.tsx`: Un carrusel 3D para mostrar servicios destacados en la página de inicio.
+-   `FeaturedCarousel.tsx`: Un carrusel 3D, visualmente impactante y responsivo, diseñado para mostrar los servicios destacados en la página de inicio. Cuenta con autoplay, navegación manual y soporte para gestos táctiles (swipe).
 
 ### Cómo Agregar un Nuevo Componente
 

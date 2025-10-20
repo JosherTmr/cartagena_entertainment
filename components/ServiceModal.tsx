@@ -34,7 +34,14 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
             <i className="fas fa-times"></i>
           </button>
           
-          <img src={service.image} alt={service.title} className="w-full h-64 object-cover rounded-lg mb-6" />
+          <img 
+            src={service.image} 
+            alt={service.title} 
+            className="w-full h-64 object-cover rounded-lg mb-6" 
+            loading="lazy"
+            width="896"
+            height="256"
+          />
           
           <div className="flex items-center gap-4 mb-4">
             <span className="bg-[var(--color-keppel)] text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg flex-shrink-0">

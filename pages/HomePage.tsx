@@ -4,6 +4,7 @@ import GlassPanel from '../components/GlassPanel';
 import { services, Service } from '../data/database';
 import ServiceModal from '../components/ServiceModal';
 import FeaturedCarousel from '../components/FeaturedCarousel';
+import VideoBackground from '../components/VideoBackground';
 
 /**
  * Componente funcional para la página de inicio.
@@ -36,6 +37,7 @@ const HomePage: React.FC = () => {
 
   return (
     <>
+      <VideoBackground />
       {/* Spacer div to push content below the absolute-positioned hero section in Header */}
       <div className="h-screen" />
 

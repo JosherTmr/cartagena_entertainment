@@ -60,7 +60,7 @@ const LicensePage: React.FC = () => {
           </AnimateOnScroll>
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
               <AnimateOnScroll className="h-full">
-                  <img src="https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Turismo Responsable" className="rounded-2xl shadow-lg w-full h-full object-cover" />
+                  <img src="https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Turismo Responsable" className="rounded-2xl shadow-lg w-full h-full object-cover" loading="lazy" />
               </AnimateOnScroll>
               <div className="grid grid-rows-3 gap-8">
                   <AnimateOnScroll delay={100}>
