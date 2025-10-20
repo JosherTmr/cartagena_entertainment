@@ -9,7 +9,7 @@ import StaticBackground from './components/StaticBackground';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
-const LifestylePage = lazy(() => import('./pages/LifestylePage'));
+const LifestylePage = lazy(() => import('./pages/LifeStylePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const LicensePage = lazy(() => import('./pages/LicensePage'));
 
