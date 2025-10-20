@@ -31,14 +31,14 @@ const AboutPage: React.FC = () => {
 
       <section className="grid md:grid-cols-2 gap-8 items-stretch mb-16">
         <AnimateOnScroll>
-          <GlassPanel className="h-full">
+          <GlassPanel className="h-full interactive-panel">
             <i className="fas fa-bullseye text-4xl text-[var(--color-keppel)] mb-4"></i>
             <h2 className="text-2xl font-bold mb-3">Nuestra Misión</h2>
             <p className="text-white/70">{companyInfo.mission}</p>
           </GlassPanel>
         </AnimateOnScroll>
         <AnimateOnScroll delay={150}>
-          <GlassPanel className="h-full">
+          <GlassPanel className="h-full interactive-panel">
             <i className="fas fa-eye text-4xl text-[var(--color-keppel)] mb-4"></i>
             <h2 className="text-2xl font-bold mb-3">Nuestra Visión</h2>
             <p className="text-white/70">{companyInfo.vision}</p>
@@ -48,7 +48,7 @@ const AboutPage: React.FC = () => {
       
       <section className="grid md:grid-cols-2 gap-8 items-center mb-16">
         <AnimateOnScroll delay={200}>
-            <GlassPanel className="h-full">
+            <GlassPanel className="h-full interactive-panel">
                 <i className="fas fa-moon text-4xl text-[var(--color-keppel)] mb-4"></i>
                 <h2 className="text-2xl font-bold mb-3">Nuestra Inspiración</h2>
                 <p className="text-white/70">{companyInfo.inspiration}</p>
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {companyInfo.values.map((value, index) => (
                  <AnimateOnScroll key={value.title} delay={index * 100}>
-                    <GlassPanel className="text-center h-full">
+                    <GlassPanel className="text-center h-full interactive-panel">
                         <i className={`${value.icon} text-4xl text-[var(--color-keppel)] mb-4`}></i>
                         <h3 className="text-lg font-bold mb-2">{value.title}</h3>
                         <p className="text-white/70 text-sm">{value.description}</p>

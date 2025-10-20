@@ -58,21 +58,21 @@ const HomePage: React.FC = () => {
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
                 <AnimateOnScroll delay={0}>
-                    <GlassPanel className="text-center">
+                    <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-gem text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Exclusividad</h3>
                         <p className="text-white/70">Servicios y propiedades de lujo seleccionados para una experiencia única.</p>
                     </GlassPanel>
                 </AnimateOnScroll>
                 <AnimateOnScroll delay={150}>
-                    <GlassPanel className="text-center">
+                    <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-user-shield text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Privacidad y Seguridad</h3>
                         <p className="text-white/70">Máxima discreción y personal de seguridad para tu tranquilidad.</p>
                     </GlassPanel>
                 </AnimateOnScroll>
                 <AnimateOnScroll delay={300}>
-                    <GlassPanel className="text-center">
+                    <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-concierge-bell text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Servicio Personalizado</h3>
                         <p className="text-white/70">Atención 24/7 y un equipo de concierge dedicado a tus deseos.</p>

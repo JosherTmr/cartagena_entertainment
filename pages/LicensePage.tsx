@@ -30,21 +30,21 @@ const LicensePage: React.FC = () => {
         </AnimateOnScroll>
         <div className="grid md:grid-cols-3 gap-8">
             <AnimateOnScroll>
-                <GlassPanel className="text-center h-full p-8">
+                <GlassPanel className="text-center h-full p-8 interactive-panel">
                     <i className="fas fa-shield-alt text-5xl text-[var(--color-keppel)] mb-6"></i>
                     <h3 className="text-2xl font-bold mb-3">Seguridad y Confianza</h3>
                     <p className="text-white/80">La licencia certifica que cumplimos con todos los requisitos legales, brindándote la tranquilidad de disfrutar de servicios seguros y confiables.</p>
                 </GlassPanel>
             </AnimateOnScroll>
             <AnimateOnScroll delay={150}>
-                <GlassPanel className="text-center h-full p-8">
+                <GlassPanel className="text-center h-full p-8 interactive-panel">
                     <i className="fas fa-balance-scale text-5xl text-[var(--color-keppel)] mb-6"></i>
                     <h3 className="text-2xl font-bold mb-3">Cumplimiento de Normas</h3>
                     <p className="text-white/80">Nos aseguramos de operar bajo las leyes y regulaciones del sector turístico, promoviendo prácticas responsables y sostenibles.</p>
                 </GlassPanel>
             </AnimateOnScroll>
             <AnimateOnScroll delay={300}>
-                <GlassPanel className="text-center h-full p-8">
+                <GlassPanel className="text-center h-full p-8 interactive-panel">
                     <i className="fas fa-check-circle text-5xl text-[var(--color-keppel)] mb-6"></i>
                     <h3 className="text-2xl font-bold mb-3">Calidad Garantizada</h3>
                     <p className="text-white/80">Nuestro compromiso con la excelencia está respaldado por certificaciones que avalan la calidad de nuestras experiencias.</p>
@@ -64,7 +64,7 @@ const LicensePage: React.FC = () => {
               </AnimateOnScroll>
               <div className="grid grid-rows-3 gap-8">
                   <AnimateOnScroll delay={100}>
-                      <GlassPanel className="h-full flex items-center p-6">
+                      <GlassPanel className="h-full flex items-center p-6 interactive-panel">
                           <i className="fas fa-user-check text-4xl text-[var(--color-keppel)] mr-6"></i>
                           <div>
                               <h3 className="text-xl font-bold mb-1 text-white">Protección al Cliente</h3>
@@ -73,7 +73,7 @@ const LicensePage: React.FC = () => {
                       </GlassPanel>
                   </AnimateOnScroll>
                   <AnimateOnScroll delay={200}>
-                      <GlassPanel className="h-full flex items-center p-6">
+                      <GlassPanel className="h-full flex items-center p-6 interactive-panel">
                           <i className="fas fa-leaf text-4xl text-[var(--color-keppel)] mr-6"></i>
                           <div>
                               <h3 className="text-xl font-bold mb-1 text-white">Experiencias Responsables</h3>
@@ -82,7 +82,7 @@ const LicensePage: React.FC = () => {
                       </GlassPanel>
                   </AnimateOnScroll>
                   <AnimateOnScroll delay={300}>
-                      <GlassPanel className="h-full flex items-center p-6">
+                      <GlassPanel className="h-full flex items-center p-6 interactive-panel">
                            <i className="fas fa-handshake text-4xl text-[var(--color-keppel)] mr-6"></i>
                           <div>
                               <h3 className="text-xl font-bold mb-1 text-white">Transparencia</h3>
@@ -101,19 +101,19 @@ const LicensePage: React.FC = () => {
         </AnimateOnScroll>
         <div className="grid md:grid-cols-3 gap-8">
           <AnimateOnScroll>
-            <GlassPanel className="h-full p-6 text-center">
+            <GlassPanel className="h-full p-6 text-center interactive-panel">
               <i className="fas fa-seedling text-4xl text-[var(--color-keppel)] mb-4"></i>
               <p className="text-lg text-white/90">Fomentar el desarrollo sostenible del turismo en la región.</p>
             </GlassPanel>
           </AnimateOnScroll>
           <AnimateOnScroll delay={150}>
-            <GlassPanel className="h-full p-6 text-center">
+            <GlassPanel className="h-full p-6 text-center interactive-panel">
               <i className="fas fa-globe-americas text-4xl text-[var(--color-keppel)] mb-4"></i>
               <p className="text-lg text-white/90">Respetar y preservar el entorno natural y cultural del Caribe.</p>
             </GlassPanel>
           </AnimateOnScroll>
           <AnimateOnScroll delay={300}>
-            <GlassPanel className="h-full p-6 text-center">
+            <GlassPanel className="h-full p-6 text-center interactive-panel">
               <i className="fas fa-star text-4xl text-[var(--color-keppel)] mb-4"></i>
               <p className="text-lg text-white/90">Ofrecer a nuestros clientes experiencias únicas, seguras y memorables.</p>
             </GlassPanel>

@@ -29,7 +29,7 @@ const DestinationsPage: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {destinations.map((destination, index) => (
               <AnimateOnScroll key={destination.id} delay={index * 150}>
-                <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col">
+                <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col interactive-panel">
                   <img src={destination.image} alt={destination.name} className="w-full h-64 object-cover" />
                   <div className="p-6 flex flex-col flex-grow">
                     <h3 className="text-2xl font-semibold mb-2">{destination.name}</h3>

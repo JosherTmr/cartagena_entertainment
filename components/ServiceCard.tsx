@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
   return (
-    <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col group">
+    <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col group interactive-panel">
       <div className="relative">
         <img src={service.image} alt={service.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
