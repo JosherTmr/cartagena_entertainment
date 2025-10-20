@@ -9,6 +9,7 @@ import StaticBackground from './components/StaticBackground';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
+const LifestylePage = lazy(() => import('./pages/LifestylePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const LicensePage = lazy(() => import('./pages/LicensePage'));
 
@@ -79,6 +80,7 @@ const AppContent: React.FC = () => {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/services" element={<ServicesPage />} />
                             <Route path="/destinations" element={<DestinationsPage />} />
+                            <Route path="/lifestyle" element={<LifestylePage />} />
                             <Route path="/about" element={<AboutPage />} />
                             <Route path="/license" element={<LicensePage />} />
                         </Routes>

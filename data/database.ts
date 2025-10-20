@@ -35,6 +35,29 @@ export interface CompanyValue {
   description: string;
 }
 
+export interface GoogleReview {
+    author: string;
+    rating: number;
+    text: string;
+}
+
+export interface SocialPost {
+    id: string;
+    image: string;
+    caption: string;
+    url: string;
+}
+
+export interface LifestyleInfo {
+    googleScore: {
+        rating: number;
+        reviewCount: number;
+    };
+    instagramPosts: SocialPost[];
+    googleReviews: GoogleReview[];
+    facebookPosts: SocialPost[];
+}
+
 export interface CompanyInfo {
     name: string;
     description: string;
@@ -46,7 +69,9 @@ export interface CompanyInfo {
         instagram: string;
         facebook: string;
         whatsapp: string;
-    }
+        googleReviews: string;
+    },
+    lifestyle: LifestyleInfo;
 }
 
 export const companyInfo: CompanyInfo = {
@@ -67,9 +92,31 @@ export const companyInfo: CompanyInfo = {
         { icon: "fas fa-smile-beam", title: "Alegría y Entusiasmo", description: "Transmitimos la energía vibrante del Caribe." }
     ],
     socials: {
-        instagram: "https://instagram.com",
-        facebook: "https://facebook.com",
-        whatsapp: "https://wa.me/573000000000" // Placeholder number
+        instagram: "https://www.instagram.com/entertain_ctg/",
+        facebook: "https://www.facebook.com/ctg.entertain",
+        whatsapp: "https://wa.me/573000000000", // Placeholder number
+        googleReviews: "https://www.google.com/maps/search/?api=1&query=Google", // Placeholder link
+    },
+    lifestyle: {
+        googleScore: {
+            rating: 4.9,
+            reviewCount: 87
+        },
+        instagramPosts: [
+            { id: "1", image: "https://images.pexels.com/photos/2405033/pexels-photo-2405033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "Atardeceres que se convierten en recuerdos eternos. #LujoCaribe", url: "https://instagram.com" },
+            { id: "2", image: "https://images.pexels.com/photos/1579602/pexels-photo-1579602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "La mesa está servida. Nuestro chef exclusivo eleva la gastronomía a otro nivel. #ExperienciaGourmet", url: "https://instagram.com" },
+            { id: "3", image: "https://images.pexels.com/photos/2566860/pexels-photo-2566860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "Su palacio flotante privado le espera para conquistar el horizonte. #YatesDeLujo", url: "https://instagram.com" }
+        ],
+        googleReviews: [
+            { author: "Alejandro V.", rating: 5, text: "Una experiencia de otro nivel. El servicio de concierge anticipó cada uno de nuestros deseos. La privacidad y el lujo son su sello distintivo. ¡Inolvidable!" },
+            { author: "Sofia L.", rating: 5, text: "El yate era espectacular y la tripulación, de primera. Pasamos un día mágico en las Islas del Rosario. Definitivamente, la mejor opción en Cartagena." },
+            { author: "Martin R.", rating: 5, text: "Alquilamos una mansión para un evento familiar y superó todas las expectativas. La atención al detalle es impresionante. Cuidan de todo para que solo te dediques a disfrutar." }
+        ],
+        facebookPosts: [
+            { id: "fb1", image: "https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "Detrás de cada gran experiencia, hay un equipo dedicado a la perfección. Conoce cómo nuestro equipo de concierge se convierte en el arquitecto de tus momentos más memorables...", url: "https://facebook.com" },
+            { id: "fb2", image: "https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "No es solo un lugar para dormir, es un santuario de paz. Descubre los secretos de diseño y confort de nuestras mansiones privadas frente al mar. El verdadero lujo reside en los detalles...", url: "https://facebook.com" },
+            { id: "fb3", image: "https://images.pexels.com/photos/6438762/pexels-photo-6438762.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", caption: "Nuestra última adquisición para la flota de alta gama está lista para dominar el asfalto. Potencia, elegancia y la última tecnología para que tus traslados sean una declaración de estilo...", url: "https://facebook.com" }
+        ]
     }
 };
 

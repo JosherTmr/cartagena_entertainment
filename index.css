@@ -262,3 +262,34 @@ body {
         border-color: var(--color-keppel);
     }
 }
+
+/* --- Estilos para el Enlace de Navegación Especial --- */
+@keyframes shimmer-animation {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.nav-link-special {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--color-keppel) 0%,
+    #ffffff 50%,
+    var(--color-keppel) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-animation 4s linear infinite;
+  font-weight: 500; /* Ligeramente más audaz que el texto normal */
+  transition: text-shadow 0.3s ease;
+}
+
+.nav-link-special:hover,
+.nav-link-special.active-special {
+  text-shadow: 
+    0 0 5px var(--color-keppel),
+    0 0 10px var(--color-keppel),
+    0 0 15px rgba(173, 237, 203, 0.5); /* Celadon glow */
+}
