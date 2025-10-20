@@ -1,63 +1,74 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import VideoBackground from './components/VideoBackground';
-import BookingBar from './components/BookingBar';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import DestinationsPage from './pages/DestinationsPage';
 import AboutPage from './pages/AboutPage';
 import LicensePage from './pages/LicensePage';
+import BookingBar from './components/BookingBar';
 
 const AppContent: React.FC = () => {
-    const [isSticky, setIsSticky] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
     const isHomePage = location.pathname === '/';
+    const [isSticky, setIsSticky] = useState(false);
+    const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+    
+    // Centralized state for the booking bar
+    const [destination, setDestination] = useState('');
+    const [category, setCategory] = useState('');
+    const [date, setDate] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
-            // Make sticky logic dependent on being on the homepage
             if (isHomePage) {
-                setIsSticky(window.scrollY > window.innerHeight * 0.8);
-            } else {
-                setIsSticky(true); // Or false, depending on desired behavior for other pages
+                setIsSticky(window.scrollY > 100);
             }
         };
 
         if (isHomePage) {
+            setIsSticky(window.scrollY > 100);
             window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Initial check
         } else {
-            // For other pages, you might want the header to be sticky from the start
             setIsSticky(true);
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            if (isHomePage) {
+                window.removeEventListener('scroll', handleScroll);
+            }
         };
     }, [isHomePage]);
+
+    const handleSearch = () => {
+        const queryParams = new URLSearchParams();
+        if (destination) queryParams.set('destination', destination);
+        if (category) queryParams.set('category', category);
+        if (date) queryParams.set('date', date);
+        navigate(`/services?${queryParams.toString()}`);
+        setIsBookingModalOpen(false); // Close modal on search
+    };
+
 
     return (
         <div className="relative min-h-screen flex flex-col font-sans bg-[var(--color-navy)] text-white">
             <VideoBackground />
             <div className="relative z-10 flex flex-col flex-grow">
-                <Header isSticky={isSticky} />
+                <Header 
+                    onSearch={handleSearch} 
+                    isSticky={isSticky}
+                    destination={destination}
+                    setDestination={setDestination}
+                    category={category}
+                    setCategory={setCategory}
+                    date={date}
+                    setDate={setDate}
+                />
 
-                {/* BookingBar is only part of the layout on the HomePage */}
-                {isHomePage && (
-                    <div className={`
-                        transition-all duration-500 ease-in-out z-20
-                        ${isSticky
-                            ? 'fixed top-4 w-auto left-1/2 -translate-x-1/2'
-                            : 'absolute top-1/2 w-full max-w-5xl left-1/2 -translate-x-1/2 -translate-y-1/2'
-                        }
-                    `}>
-                        <BookingBar onSearch={() => {}} isSticky={isSticky} />
-                    </div>
-                )}
-
-                <main className="flex-grow">
+                <main className={`flex-grow ${!isHomePage ? 'pt-20' : ''}`}>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/services" element={<ServicesPage />} />
@@ -68,6 +79,51 @@ const AppContent: React.FC = () => {
                 </main>
                 <Footer />
             </div>
+
+            {/* Mobile Floating Booking Trigger */}
+            <div
+                className={`md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 transition-all duration-300 ease-in-out transform ${isSticky ? 'translate-y-0' : 'translate-y-full'}`}
+                onClick={() => setIsBookingModalOpen(true)}
+                role="button"
+                aria-label="Abrir barra de búsqueda"
+            >
+                <div className="bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border border-[var(--glass-border)] rounded-full flex items-center p-2 px-4 justify-between cursor-pointer">
+                    <div className="flex items-center gap-3 text-sm text-white/80">
+                        <span>📍 Destino</span>
+                        <span className="border-l border-white/20 h-4"></span>
+                        <span>🛎️ Servicio</span>
+                        <span className="border-l border-white/20 h-4"></span>
+                        <span>📅 Fecha</span>
+                    </div>
+                    <div className="bg-[var(--color-keppel)] rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0 ml-2">
+                        <i className="fas fa-search text-white"></i>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Booking Modal */}
+            {isBookingModalOpen && (
+                 <div
+                    className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col justify-end p-4 md:hidden animate-fade-in"
+                    onClick={() => setIsBookingModalOpen(false)}
+                >
+                    <div
+                        className="w-full max-w-md mb-20 animate-fade-in-up"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                       <BookingBar 
+                            onSearch={handleSearch} 
+                            isSticky={false}
+                            destination={destination}
+                            setDestination={setDestination}
+                            category={category}
+                            setCategory={setCategory}
+                            date={date}
+                            setDate={setDate}
+                       />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

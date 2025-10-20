@@ -14,7 +14,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
       <div className="relative">
         <img src={service.image} alt={service.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 text-white">
+        <div className="absolute bottom-4 left-4 right-4 text-white">
           <h3 className="text-xl font-bold">{service.title}</h3>
         </div>
         <div className="absolute top-4 right-4 bg-[var(--color-keppel)] text-white w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-lg">

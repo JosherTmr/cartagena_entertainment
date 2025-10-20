@@ -1,10 +1,9 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { services, destinations, Service } from '../data/database';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import ServiceCard from '../components/ServiceCard';
 import ServiceModal from '../components/ServiceModal';
-import BookingBar from '../components/BookingBar';
 
 /**
  * Componente para la página de visualización de servicios.
@@ -17,7 +16,6 @@ import BookingBar from '../components/BookingBar';
 const ServicesPage: React.FC = () => {
     // --- Hooks ---
     const location = useLocation();
-    const navigate = useNavigate();
     const [selectedService, setSelectedService] = useState<Service | null>(null);
 
     /**
@@ -85,32 +83,8 @@ const ServicesPage: React.FC = () => {
         setSelectedService(null);
     };
     
-    /**
-     * Maneja una nueva búsqueda desde el BookingBar, actualizando la URL.
-     * @param criteria - Los nuevos criterios de búsqueda.
-     */
-    const handleSearch = (criteria: { destination: string; category: string; date: string }) => {
-        const queryParams = new URLSearchParams();
-        if (criteria.destination) queryParams.set('destination', criteria.destination);
-        if (criteria.category) queryParams.set('category', criteria.category);
-        if (criteria.date) queryParams.set('date', criteria.date);
-        navigate(`?${queryParams.toString()}`);
-    };
-
     return (
         <>
-            {/* Desktop Floating Sticky Bar */}
-            <div className="hidden md:block sticky top-24 z-30 py-4">
-                <div className="container mx-auto px-4">
-                    <BookingBar onSearch={handleSearch} />
-                </div>
-            </div>
-            
-             {/* Mobile Fixed Bar */}
-            <div className="md:hidden">
-                <BookingBar onSearch={handleSearch} />
-            </div>
-
             <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
                 <section className="text-center mb-16">
                     <AnimateOnScroll>

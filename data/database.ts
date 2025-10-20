@@ -102,7 +102,7 @@ export const services: Service[] = [
       {
         "id": "powercats-botes-deportivos",
         "category": "Navegación",
-        "featured": false,
+        "featured": true,
         "title": "Powercats y Botes Deportivos",
         "shortDescription": "Desate la potencia y conquiste el horizonte. Adrenalina pura envuelta en diseño de vanguardia y confort absoluto.",
         "fullDescription": "Para aquellos que viven a un ritmo superior. Nuestra flota de botes deportivos y powercats son bestias de alto rendimiento diseñadas para dominar las olas. Sienta la adrenalina de la velocidad sin sacrificar un ápice de lujo y estabilidad. El poder en su estado más puro.",
@@ -162,7 +162,7 @@ export const services: Service[] = [
       {
         "id": "alquiler-autos-gama-alta",
         "category": "Transporte de Lujo",
-        "featured": false,
+        "featured": true,
         "title": "Alquiler de Automóviles de Alta Gama",
         "shortDescription": "Domine el asfalto con una declaración de poder y elegancia. Nuestra flota de élite es la llave de la ciudad.",
         "fullDescription": "Cada trayecto es una oportunidad para impresionar. Nuestra colección de automóviles de alta gama representa la cima de la ingeniería y el diseño. Muévase con la sofisticación y el poder que le definen, ya sea para una llegada triunfal o para el simple placer de conducir la perfección.",
@@ -186,7 +186,7 @@ export const services: Service[] = [
       {
         "id": "tours-personalizados",
         "category": "Experiencias Exclusivas",
-        "featured": false,
+        "featured": true,
         "title": "Tours Personalizados",
         "shortDescription": "Diseñamos odiseas a medida. Le revelamos los secretos mejor guardados del Caribe en un viaje curado para usted.",
         "fullDescription": "Olvídese de los itinerarios comunes. Creamos expediciones personalizadas que responden a su curiosidad y sus pasiones. Acceda a lugares inaccesibles, conozca personajes fascinantes y viva experiencias que el dinero normalmente no puede comprar. Su aventura será única, como usted.",

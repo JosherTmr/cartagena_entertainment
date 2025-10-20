@@ -11,7 +11,7 @@ const LiquidButton: React.FC<LiquidButtonProps> = ({ children, variant = 'primar
   
   const variantClasses = {
     primary: "bg-[var(--color-keppel)] hover:bg-[var(--color-keppel-light)] focus:ring-[var(--color-keppel)]",
-    secondary: "bg-white/10 hover:bg-white/20 border border-white/20 focus:ring-white/50"
+    secondary: "bg-white/10 hover:bg-white/20 border border-white/20 focus:ring-white/50 backdrop-blur-sm"
   };
 
   const spanClasses = "absolute top-0 left-0 w-full h-full bg-white opacity-0 transform scale-150 rounded-full group-hover:opacity-20 group-hover:scale-100 transition-transform duration-500 ease-out";

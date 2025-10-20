@@ -1,8 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import GlassPanel from '../components/GlassPanel';
 import AnimateOnScroll from '../components/AnimateOnScroll';
-import BookingBar from '../components/BookingBar';
 import { destinations } from '../data/database';
 
 /**
@@ -13,36 +11,8 @@ import { destinations } from '../data/database';
  * explorar los servicios filtrando por destino, categoría o fecha.
  */
 const DestinationsPage: React.FC = () => {
-  const navigate = useNavigate();
-
-  /**
-   * Maneja la búsqueda de servicios desde el BookingBar.
-   * Redirige al usuario a la página de servicios con los filtros de búsqueda
-   * aplicados como parámetros en la URL.
-   * @param criteria - Objeto con los criterios de búsqueda.
-   */
-  const handleSearch = (criteria: { destination: string; category:string; date: string }) => {
-    const queryParams = new URLSearchParams();
-    if (criteria.destination) queryParams.set('destination', criteria.destination);
-    if (criteria.category) queryParams.set('category', criteria.category);
-    if (criteria.date) queryParams.set('date', criteria.date);
-    navigate(`/services?${queryParams.toString()}`);
-  };
-
   return (
     <>
-      {/* Desktop Floating Sticky Bar */}
-      <div className="hidden md:block sticky top-24 z-30 py-4">
-        <div className="container mx-auto px-4">
-          <BookingBar onSearch={handleSearch} />
-        </div>
-      </div>
-      
-      {/* Mobile Fixed Bar */}
-      <div className="md:hidden">
-        <BookingBar onSearch={handleSearch} />
-      </div>
-
       <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
         <section className="text-center mb-16">
           <AnimateOnScroll>
