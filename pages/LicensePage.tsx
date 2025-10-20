@@ -14,7 +14,7 @@ const LicensePage: React.FC = () => {
       {/* Sección de Encabezado */}
       <section className="text-center mb-12">
         <AnimateOnScroll>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Licencia de Turismo</h1>
+          <h1 className="text-4xl sm:text-6xl text-white font-display">Licencia de Turismo</h1>
         </AnimateOnScroll>
         <AnimateOnScroll delay={200}>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">
@@ -26,7 +26,7 @@ const LicensePage: React.FC = () => {
       {/* Sección de Significado */}
       <section className="mb-16">
         <AnimateOnScroll>
-          <h2 className="text-4xl font-bold text-center text-white mb-12">¿Qué significa nuestra Licencia de Turismo para ti?</h2>
+          <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">¿Qué significa nuestra Licencia para ti?</h2>
         </AnimateOnScroll>
         <div className="grid md:grid-cols-3 gap-8">
             <AnimateOnScroll>
@@ -56,7 +56,7 @@ const LicensePage: React.FC = () => {
       {/* Sección de Importancia */}
       <section className="mb-16">
           <AnimateOnScroll>
-            <h2 className="text-4xl font-bold text-center text-white mb-12">¿Por qué elegir una empresa con Licencia de Turismo?</h2>
+            <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">¿Por qué elegir una empresa con Licencia?</h2>
           </AnimateOnScroll>
           <div className="grid lg:grid-cols-2 gap-8 items-stretch">
               <AnimateOnScroll className="h-full">
@@ -97,7 +97,7 @@ const LicensePage: React.FC = () => {
       {/* Sección de Compromiso */}
       <section className="mb-16">
         <AnimateOnScroll>
-          <h2 className="text-4xl font-bold text-center text-white mb-12">Nuestro Compromiso</h2>
+          <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Nuestro Compromiso</h2>
         </AnimateOnScroll>
         <div className="grid md:grid-cols-3 gap-8">
           <AnimateOnScroll>
@@ -124,7 +124,7 @@ const LicensePage: React.FC = () => {
       {/* Sección de Cierre */}
       <section className="text-center">
         <AnimateOnScroll>
-          <h2 className="text-3xl font-bold text-white">Viaja con Confianza y Tranquilidad</h2>
+          <h2 className="text-3xl sm:text-4xl text-white font-display">Viaja con Confianza y Tranquilidad</h2>
         </AnimateOnScroll>
         <AnimateOnScroll delay={200}>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">

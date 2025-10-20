@@ -13,12 +13,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
+    @import url(https://db.onlinewebfonts.com/c/0547cf2826426ee5de8d8025f9024bf5?family=BuckwheatTCSans-Painted);
+
     :root {
       --color-navy: #211916; /* Licorice */
       --color-keppel: #59b4a3; /* Keppel */
       --color-keppel-light: #57aa80; /* Mint */
       --glass-background: rgba(33, 25, 22, 0.5); /* Derived from Licorice */
       --glass-border: rgba(255, 255, 255, 0.1);  /* Subtle white border */
+      --font-display: 'BuckwheatTCSans-Painted', sans-serif;
     }
     body {
       font-family: 'Poppins', sans-serif;
@@ -27,6 +30,12 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
+    .font-display {
+      font-family: var(--font-display);
+      font-weight: normal; /* Decorative fonts often don't need bolding */
+      letter-spacing: 1px;
+    }
+
     /* --- INICIO DE MICROINTERACCIONES --- */
 
     /* Efecto hover para paneles de vidrio interactivos */

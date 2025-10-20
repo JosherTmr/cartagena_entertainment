@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
           {/* Featured Services Section */}
           <section className="mb-24">
             <AnimateOnScroll>
-              <h2 className="text-4xl font-bold text-center text-white mb-12">Atrevete a vivir experiencias exclusivas</h2>
+              <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Atrevete a vivir experiencias exclusivas</h2>
             </AnimateOnScroll>
              <AnimateOnScroll>
               <FeaturedCarousel services={featuredServices} onSelect={handleSelectService} />
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
           {/* Why Choose Us Section */}
           <section>
             <AnimateOnScroll>
-              <h2 className="text-4xl font-bold text-center text-white mb-12">¿Por Qué Elegirnos?</h2>
+              <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">¿Por Qué Elegirnos?</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
                 <AnimateOnScroll delay={0}>

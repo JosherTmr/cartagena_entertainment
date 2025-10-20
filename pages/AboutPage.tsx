@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
       {/* Sección de Encabezado */}
       <section className="text-center mb-16">
         <AnimateOnScroll>
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Sobre {companyInfo.name}</h1>
+          <h1 className="text-4xl sm:text-6xl text-white font-display">Sobre {companyInfo.name}</h1>
         </AnimateOnScroll>
         <AnimateOnScroll delay={200}>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">

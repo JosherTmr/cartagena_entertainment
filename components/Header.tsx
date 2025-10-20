@@ -105,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="container mx-auto px-4 h-full">
                         <div className="text-center h-full flex flex-col justify-center items-center">
                              <AnimateOnScroll>
-                                <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                                <h1 className="text-5xl md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-display">
                                     Tu Aventura de Lujo <br /> en el Corazón del Caribe
                                 </h1>
                             </AnimateOnScroll>
