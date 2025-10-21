@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./dist  # o ./build si usas CRA
+          local-dir: ./dist/  # o ./build si usas CRA
           server-dir: /public_html/
           state-name: .ftp-deploy-sync-state.json
           dry-run: false
