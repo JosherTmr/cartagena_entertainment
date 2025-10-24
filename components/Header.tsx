@@ -62,12 +62,12 @@ const Header: React.FC<HeaderProps> = ({
                         
                         <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} end>Inicio</NavLink>
-                            <NavLink to="/Sservices" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
-                            <NavLink to="/Sdestinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
-                            <NavLink to="/Sabout" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
-                            <NavLink to="/Slicense" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
                             <NavLink 
-                                to="/Slifestyle" 
+                                to="/lifestyle" 
                                 className={({ isActive }) => 
                                     `text-lg nav-link-special ${isActive ? 'active-special' : ''}`
                                 }
@@ -94,12 +94,12 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="md:hidden bg-[var(--glass-background)] backdrop-blur-md pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)} end>Inicio</NavLink>
-                            <NavLink to="/Sservices" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
-                            <NavLink to="/Sdestinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
-                            <NavLink to="/Sabout" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
-                            <NavLink to="/Slicense" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
                              <NavLink 
-                                to="/Slifestyle" 
+                                to="/lifestyle" 
                                 className={({ isActive }) => 
                                     `text-lg nav-link-special ${isActive ? 'active-special' : ''}`
                                 }
@@ -122,12 +122,12 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="container mx-auto px-4 h-full">
                         <div className="text-center h-full flex flex-col justify-center items-center">
                              <AnimateOnScroll>
-                                <h1 className="text-5xl md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-display">
+                                <h1 className="text-4xl md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-display">
                                     Artevete a vivir tu aventura <br /> en el corazón del caribe
                                 </h1>
                             </AnimateOnScroll>
                             <AnimateOnScroll delay={200}>
-                                <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+                                <p className="text-lg md:text-2xl text-white/80 max-w-3xl mx-auto">
                                     Descubre yates exclusivos, mansiones de ensueño y experiencias inolvidables diseñadas solo para ti.
                                 </p>
                             </AnimateOnScroll>

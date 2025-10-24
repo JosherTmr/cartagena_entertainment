@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
         schema={websiteSchema}
       />
       {/* Spacer div to push content below the absolute-positioned hero section in Header */}
-      <div className="h-[50vh] sm:h-[70vh]" />
+      <div className="h-[80vh] sm:h-[70vh]" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
           {/* Featured Destinations Section (NUEVA SECCIÓN) */}
           <section className="mb-24">
             <AnimateOnScroll>
-              <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Enamórate de nuestros increíbles destinos</h2>
+              <h2 className="text-3xl sm:text-5xl text-center text-white mb-12 font-display">Enamórate de nuestros increíbles destinos</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDestinations.map((dest, index) => (
