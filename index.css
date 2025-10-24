@@ -10,7 +10,6 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--color-navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

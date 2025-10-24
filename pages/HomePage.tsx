@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import GlassPanel from '../components/GlassPanel';
-import { services, Service } from '../data/database';
+import { services, Service, destinations } from '../data/database';
 import ServiceModal from '../components/ServiceModal';
 import FeaturedCarousel from '../components/FeaturedCarousel';
-import VideoBackground from '../components/VideoBackground';
+import DestinationCard from '../components/DestinationCard';
 
 /**
  * Componente funcional para la página de inicio.
  *
  * Esta página sirve como la principal puerta de entrada a la aplicación. Presenta:
  * - Una sección "hero" con un eslogan atractivo (manejada por el Header).
+ * - Una sección de destinos destacados.
  * - Una lista de servicios destacados (`featuredServices`).
  * - Una sección que resalta las fortalezas de la empresa ("¿Por Qué Elegirnos?").
  * - Un modal para ver los detalles de un servicio seleccionado.
@@ -18,6 +19,7 @@ import VideoBackground from '../components/VideoBackground';
 const HomePage: React.FC = () => {
   // --- Estado y Navegación ---
   const featuredServices = services.filter(s => s.featured);
+  const featuredDestinations = destinations; // Mostramos todos los destinos disponibles
   const [selectedService, setSelectedService] = useState<Service | null>(null); // Estado para el servicio seleccionado en el modal
 
   /**
@@ -37,13 +39,27 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <VideoBackground />
       {/* Spacer div to push content below the absolute-positioned hero section in Header */}
       <div className="h-screen" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16 sm:py-24">
-          {/* Featured Services Section */}
+          
+          {/* Featured Destinations Section (NUEVA SECCIÓN) */}
+          <section className="mb-24">
+            <AnimateOnScroll>
+              <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Enamórate de nuestros increíbles destinos</h2>
+            </AnimateOnScroll>
+            <div className="grid md:grid-cols-3 gap-8">
+              {featuredDestinations.map((dest, index) => (
+                <AnimateOnScroll key={dest.id} delay={index * 150}>
+                  <DestinationCard destination={dest} />
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </section>
+
+          {/* Featured Services Section (SECCIÓN REUBICADA) */}
           <section className="mb-24">
             <AnimateOnScroll>
               <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Atrevete a vivir experiencias exclusivas</h2>

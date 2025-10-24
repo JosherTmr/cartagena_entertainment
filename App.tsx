@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import BookingBar from './components/BookingBar';
 import StaticBackground from './components/StaticBackground';
+import VideoBackground from './components/VideoBackground';
 
 // Lazy load page components for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -57,11 +58,10 @@ const AppContent: React.FC = () => {
 
 
     return (
-        <div className="relative min-h-screen flex flex-col font-sans bg-[var(--color-navy)] text-white">
-            {/* Render static background on all pages except home */}
-            {!isHomePage && <StaticBackground />}
+        <div className="relative min-h-screen flex flex-col font-sans text-white">
+            {/* Render backgrounds based on page */}
+            {isHomePage ? <VideoBackground /> : <StaticBackground />}
 
-            {/* VideoBackground is rendered only in HomePage for performance */}
             <div className="relative z-10 flex flex-col flex-grow">
                 <Header 
                     onSearch={handleSearch} 
