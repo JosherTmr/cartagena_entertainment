@@ -10,7 +10,23 @@ const VideoBackground: React.FC = () => {
                 loop
                 muted
             />
+            {/* Overlay semitransparente para mejorar la legibilidad del contenido */}
             <div className="absolute inset-0 bg-black/50"></div>
+
+            {/* Componente de atribución: ¡la clave! */}
+            <div className="absolute bottom-1 right-2 z-10">
+                <p className="text-xs text-white/50">
+                    Video by{' '}
+                    <a
+                        href="https://coverr.co/es"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-white transition-colors"
+                    >
+                        Coverr
+                    </a>
+                </p>
+            </div>
         </div>
     );
 };

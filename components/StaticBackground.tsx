@@ -9,7 +9,7 @@ const StaticBackground: React.FC = () => {
         <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--color-navy)]">
             <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('https://images.pexels.com/photos/1078983/pexels-photo-1078983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')` }}
+                style={{ backgroundImage: `url('/background.png')` }} // <-- ¡Fuente actualizada aquí!
                 aria-hidden="true"
                 role="img"
             />
