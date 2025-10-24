@@ -14,7 +14,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
       <div className="relative">
         <img 
           src={service.image} 
-          alt={service.title} 
+          alt={`Imagen del servicio: ${service.title}`} 
           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" 
           loading="lazy"
           width="400"

@@ -57,17 +57,17 @@ const Header: React.FC<HeaderProps> = ({
                 <div className="container mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
                         <NavLink to="/" className="text-2xl font-bold text-white flex-shrink-0 mr-4">
-                            <img src="/Logo_CERP.png" alt={companyInfo.name} className="h-12" />
+                            <img src="/Logo_CERP.png" alt={`Logo de ${companyInfo.name}`} className="h-12" />
                         </NavLink>
                         
                         <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} end>Inicio</NavLink>
-                            <NavLink to="/sservices" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
-                            <NavLink to="/sdestinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
-                            <NavLink to="/sabout" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
-                            <NavLink to="/lsicense" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
                             <NavLink 
-                                to="/slifestyle" 
+                                to="/lifestyle" 
                                 className={({ isActive }) => 
                                     `text-lg nav-link-special ${isActive ? 'active-special' : ''}`
                                 }
@@ -94,10 +94,10 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="md:hidden bg-[var(--glass-background)] backdrop-blur-md pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)} end>Inicio</NavLink>
-                            <NavLink to="/sservices" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
-                            <NavLink to="/sdestinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
-                            <NavLink to="/sabout" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
-                            <NavLink to="/slicense" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
                              <NavLink 
                                 to="/lifestyle" 
                                 className={({ isActive }) => 
@@ -123,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({
                         <div className="text-center h-full flex flex-col justify-center items-center">
                              <AnimateOnScroll>
                                 <h1 className="text-5xl md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-display">
-                                    Tu Aventura de Lujo <br /> en el Corazón del Caribe
+                                    Artevete a vivir tu aventura <br /> en el corazón del caribe
                                 </h1>
                             </AnimateOnScroll>
                             <AnimateOnScroll delay={200}>

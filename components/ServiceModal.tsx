@@ -36,7 +36,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
           
           <img 
             src={service.image} 
-            alt={service.title} 
+            alt={`Imagen principal del servicio: ${service.title}`} 
             className="w-full h-64 object-cover rounded-lg mb-6" 
             loading="lazy"
             width="896"

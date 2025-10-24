@@ -4,6 +4,8 @@ import { services, destinations, Service } from '../data/database';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import ServiceCard from '../components/ServiceCard';
 import ServiceModal from '../components/ServiceModal';
+import SeoManager from '../components/SeoManager';
+import { companyInfo } from '../data/database';
 
 /**
  * Componente para la página de visualización de servicios.
@@ -30,7 +32,7 @@ const ServicesPage: React.FC = () => {
 
         let servicesToShow = [...services];
         let newTitle = "Todos Nuestros Servicios";
-        let newDescription = "Explora la gama completa de experiencias de lujo que hemos curado para ti.";
+        let newDescription = "Explora la gama completa de experiencias de lujo que hemos curado para ti en el Caribe.";
         
         // Filtrar por destino si se proporciona el parámetro 'destination'
         if (destinationId) {
@@ -43,7 +45,7 @@ const ServicesPage: React.FC = () => {
                 });
                 servicesToShow = services.filter(s => availableServiceIds.has(s.id));
                 newTitle = `Servicios en ${destination.name}`;
-                newDescription = `Descubre las mejores experiencias disponibles en ${destination.name}.`;
+                newDescription = `Descubre las mejores experiencias de lujo y alquileres disponibles en ${destination.name}, Cartagena.`;
             }
         }
 
@@ -52,7 +54,9 @@ const ServicesPage: React.FC = () => {
             servicesToShow = servicesToShow.filter(s => s.category === category);
             if (!destinationId) { // Solo sobrescribir el título si no hay un filtro de destino
                 newTitle = `Servicios de ${category}`;
-                newDescription = `Explora nuestros servicios exclusivos en la categoría de ${category}.`;
+                newDescription = `Explora nuestros servicios exclusivos en la categoría de ${category} en Cartagena y el Caribe.`;
+            } else {
+                 newTitle = `${category} en ${destinations.find(d => d.id === destinationId)?.name}`;
             }
         }
         
@@ -62,6 +66,29 @@ const ServicesPage: React.FC = () => {
             description: newDescription
         };
     }, [location.search]);
+    
+    // Schema.org para la lista de servicios
+    const serviceListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": title,
+        "description": description,
+        "itemListElement": filteredServices.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.shortDescription,
+                "image": service.image,
+                "provider": {
+                    "@type": "Organization",
+                    "name": companyInfo.name
+                }
+            }
+        }))
+    };
+
 
     // Efecto para hacer scroll hacia arriba cuando cambian los filtros.
     useEffect(() => {
@@ -85,6 +112,11 @@ const ServicesPage: React.FC = () => {
     
     return (
         <>
+            <SeoManager 
+                title={`${title} | ${companyInfo.name}`}
+                description={description}
+                schema={serviceListSchema}
+            />
             <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
                 <section className="text-center mb-16">
                     <AnimateOnScroll>

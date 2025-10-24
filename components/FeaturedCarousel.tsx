@@ -93,7 +93,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
             <div className="content">
                 <div className="name">{service.title}</div>
                 <div className="des">{service.shortDescription}</div>
-                <button onClick={(e) => { e.stopPropagation(); onSelect(service); }}>Ver Más</button>
+                <button onClick={(e) => { e.stopPropagation(); onSelect(service); }}>Ver Detalles</button>
             </div>
           </div>
         ))}

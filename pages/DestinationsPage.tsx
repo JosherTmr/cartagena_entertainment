@@ -2,6 +2,7 @@ import React from 'react';
 import GlassPanel from '../components/GlassPanel';
 import AnimateOnScroll from '../components/AnimateOnScroll';
 import { destinations } from '../data/database';
+import SeoManager from '../components/SeoManager';
 
 /**
  * Componente para la página de visualización de destinos.
@@ -13,6 +14,10 @@ import { destinations } from '../data/database';
 const DestinationsPage: React.FC = () => {
   return (
     <>
+      <SeoManager
+        title="Destinos en Cartagena e Islas del Rosario | Cartagena Entertainment"
+        description="Explora los destinos paradisíacos que ofrecemos, desde la vibrante Cholón hasta la serena Playa Escondida. Planea tu próxima aventura en el Caribe."
+      />
       <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
         <section className="text-center mb-16">
           <AnimateOnScroll>
@@ -32,7 +37,7 @@ const DestinationsPage: React.FC = () => {
                 <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col interactive-panel">
                   <img 
                     src={destination.image} 
-                    alt={destination.name} 
+                    alt={`Vista panorámica del destino: ${destination.name}`} 
                     className="w-full h-64 object-cover" 
                     loading="lazy"
                     width="600"

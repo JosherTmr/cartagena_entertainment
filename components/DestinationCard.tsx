@@ -20,7 +20,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
       <div className="relative overflow-hidden">
         <img
           src={destination.image}
-          alt={destination.name}
+          alt={`Paisaje de ${destination.name}, un destino turístico en Cartagena`}
           className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           width="400"

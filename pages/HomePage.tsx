@@ -5,6 +5,7 @@ import { services, Service, destinations } from '../data/database';
 import ServiceModal from '../components/ServiceModal';
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import DestinationCard from '../components/DestinationCard';
+import SeoManager from '../components/SeoManager';
 
 /**
  * Componente funcional para la página de inicio.
@@ -36,9 +37,26 @@ const HomePage: React.FC = () => {
   const handleCloseModal = () => {
     setSelectedService(null);
   };
+  
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cartagena Entertainment Rent and Pleasure",
+    "url": "https://aistudio.google.com/app/project/fc483c65-7286-4e12-a16f-75b87c711202",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aistudio.google.com/app/project/fc483c65-7286-4e12-a16f-75b87c711202/services?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
 
   return (
     <>
+      <SeoManager
+        title="Yates de Lujo y Experiencias Exclusivas en Cartagena | Cartagena Entertainment"
+        description="Descubre el máximo lujo en el Caribe. Alquiler de yates, mansiones privadas y experiencias inolvidables en Cartagena y las Islas del Rosario. Vive una aventura sin concesiones."
+        schema={websiteSchema}
+      />
       {/* Spacer div to push content below the absolute-positioned hero section in Header */}
       <div className="h-screen" />
 
