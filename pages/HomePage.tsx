@@ -58,7 +58,7 @@ const HomePage: React.FC = () => {
         schema={websiteSchema}
       />
       {/* Spacer div to push content below the absolute-positioned hero section in Header */}
-      <div className="h-[70vh]" />
+      <div className="h-[50vh] sm:h-[70vh]" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16 sm:py-24">
