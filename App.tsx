@@ -89,14 +89,14 @@ const AppContent: React.FC = () => {
                 <Footer />
             </div>
 
-            {/* Mobile Floating Booking Trigger */}
-            <div
-                className={`md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 transition-all duration-300 ease-in-out transform ${isSticky ? 'translate-y-0' : 'translate-y-full'}`}
+            {/* Mobile/Tablet Floating Booking Trigger */}
+            <button
+                type="button"
+                className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 p-3 transition-all duration-300 ease-in-out transform ${isSticky ? 'translate-y-0' : 'translate-y-full'}`}
                 onClick={() => setIsBookingModalOpen(true)}
-                role="button"
                 aria-label="Abrir barra de búsqueda"
             >
-                <div className="bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border border-[var(--glass-border)] rounded-full flex items-center p-2 px-4 justify-between cursor-pointer">
+                <div className="bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border border-[var(--glass-border)] rounded-full flex items-center p-2 px-4 justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)]">
                     <div className="flex items-center gap-3 text-sm text-white/80">
                         <span>📍 Destino</span>
                         <span className="border-l border-white/20 h-4"></span>
@@ -104,16 +104,16 @@ const AppContent: React.FC = () => {
                         <span className="border-l border-white/20 h-4"></span>
                         <span>📅 Fecha</span>
                     </div>
-                    <div className="bg-[var(--color-keppel)] rounded-full w-9 h-9 flex items-center justify-center flex-shrink-0 ml-2">
+                    <div className="bg-[var(--color-keppel)] rounded-full w-11 h-11 flex items-center justify-center flex-shrink-0 ml-2">
                         <i className="fas fa-search text-white"></i>
                     </div>
                 </div>
-            </div>
+            </button>
 
-            {/* Mobile Booking Modal */}
+            {/* Mobile/Tablet Booking Modal */}
             {isBookingModalOpen && (
                  <div
-                    className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col justify-end p-4 md:hidden animate-fade-in"
+                    className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col justify-end p-4 lg:hidden animate-fade-in"
                     onClick={() => setIsBookingModalOpen(false)}
                 >
                     <div

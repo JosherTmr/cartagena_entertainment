@@ -83,11 +83,14 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
       onTouchEnd={handleTouchEnd}
     >
       <div className="slide">
-        {services.map((service, index) => (
+        {services.map((service, index) => {
+          const positionClass = getPositionClass(index);
+          const shouldLoadImage = positionClass === 'active' || positionClass === 'next' || positionClass === 'next-2';
+          return (
           <div
             key={service.id}
-            className={`item ${getPositionClass(index)}`}
-            style={{ backgroundImage: `url(${service.image})` }}
+            className={`item ${positionClass}`}
+            style={shouldLoadImage ? { backgroundImage: `url(${service.image})` } : undefined}
             onClick={() => handleItemClick(index)}
           >
             <div className="content">
@@ -96,7 +99,8 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
                 <button onClick={(e) => { e.stopPropagation(); onSelect(service); }}>Ver Detalles</button>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
       <div className="button-container">
         <button className="prev" onClick={handlePrev} aria-label="Anterior">

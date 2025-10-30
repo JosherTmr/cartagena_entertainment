@@ -145,7 +145,7 @@ const BookingBar: React.FC<BookingBarProps> = ({
                 {/* Destino */}
                 <div className="relative flex-1 flex items-center h-full px-2">
                     <i className="fas fa-map-marker-alt text-white/70 mr-3"></i>
-                    <select value={destination} onChange={e => setDestination(e.target.value)} className={`${selectClass} pr-6`}>
+                    <select aria-label="Seleccionar destino" value={destination} onChange={e => setDestination(e.target.value)} className={`${selectClass} pr-6`}>
                         <option value="" className="bg-gray-800">Destino</option>
                         {destinations.map(d => (
                             <option key={d.id} value={d.id} className="bg-gray-800">{d.name}</option>
@@ -161,7 +161,7 @@ const BookingBar: React.FC<BookingBarProps> = ({
                 {/* Servicio */}
                 <div className="relative flex-1 flex items-center h-full px-2">
                     <i className="fas fa-concierge-bell text-white/70 mr-3"></i>
-                    <select value={category} onChange={e => setCategory(e.target.value)} className={`${selectClass} pr-6`} disabled={!availableCategories.length}>
+                    <select aria-label="Seleccionar tipo de servicio" value={category} onChange={e => setCategory(e.target.value)} className={`${selectClass} pr-6`} disabled={!availableCategories.length}>
                         <option value="" className="bg-gray-800">Servicio</option>
                         {availableCategories.map(c => (
                             <option key={c} value={c} className="bg-gray-800">{c}</option>
@@ -193,7 +193,7 @@ const BookingBar: React.FC<BookingBarProps> = ({
                     </div>
                 </div>
 
-                <LiquidButton type="submit" variant="primary" className="w-10 h-10 !p-0 flex-shrink-0 ml-2 rounded-full">
+                <LiquidButton type="submit" aria-label="Buscar" variant="primary" className="w-11 h-11 !p-0 flex-shrink-0 ml-2 rounded-full">
                     <i className="fas fa-search"></i>
                 </LiquidButton>
             </form>

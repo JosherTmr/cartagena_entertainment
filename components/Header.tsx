@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
-    const navLinkClasses = "text-white/80 hover:text-white transition-colors duration-300 text-lg";
+    const navLinkClasses = "text-white/80 hover:text-white transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded";
     const activeLinkClasses = "text-[var(--color-keppel)] font-semibold";
     
     const headerClasses = `
@@ -56,20 +56,20 @@ const Header: React.FC<HeaderProps> = ({
             <header className={headerClasses}>
                 <div className="container mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
-                        <NavLink to="/" className="text-2xl font-bold text-white flex-shrink-0 mr-4">
+                        <NavLink to="/" aria-label={`Ir al inicio - ${companyInfo.name}`} className="text-2xl font-bold text-white flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
                             <img src="/Logo_CERP.png" alt={`Logo de ${companyInfo.name}`} className="h-12" />
                         </NavLink>
                         
                         <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} end>Inicio</NavLink>
-                            <NavLink to="/#services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
-                            <NavLink to="/#destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
-                            <NavLink to="/#about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
-                            <NavLink to="/#license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
                             <NavLink 
-                                to="/#lifestyle" 
+                                to="/lifestyle" 
                                 className={({ isActive }) => 
-                                    `text-lg nav-link-special ${isActive ? 'active-special' : ''}`
+                                    `text-lg nav-link-special ${isActive ? 'active-special' : ''} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded`
                                 }
                             >
                                 Estilo de Vida
@@ -82,7 +82,13 @@ const Header: React.FC<HeaderProps> = ({
                             </div>
 
                             <div className="md:hidden ml-4">
-                                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
+                                <button 
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                                    className="text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded"
+                                    aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                                    aria-expanded={isMenuOpen}
+                                    aria-controls="mobile-menu"
+                                >
                                     <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} fa-lg`}></i>
                                 </button>
                             </div>
@@ -91,17 +97,17 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
 
                 {isMenuOpen && (
-                    <div className="md:hidden bg-[var(--glass-background)] backdrop-blur-md pb-4 px-4">
+                    <div id="mobile-menu" className="md:hidden bg-[var(--glass-background)] backdrop-blur-md pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)} end>Inicio</NavLink>
-                            <NavLink to="/#services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
-                            <NavLink to="/#destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
-                            <NavLink to="/#about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
-                            <NavLink to="/#license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
                              <NavLink 
-                                to="/#lifestyle" 
+                                to="/lifestyle" 
                                 className={({ isActive }) => 
-                                    `text-lg nav-link-special ${isActive ? 'active-special' : ''}`
+                                    `text-lg nav-link-special ${isActive ? 'active-special' : ''} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded`
                                 }
                                 onClick={() => setIsMenuOpen(false)}
                             >

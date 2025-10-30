@@ -66,14 +66,14 @@ const LifestylePage: React.FC = () => {
                     <AnimateOnScroll>
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Momentos Exclusivos</h2>
                     </AnimateOnScroll>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                         {lifestyle.instagramPosts.map((post, index) => (
                             <AnimateOnScroll key={post.id} delay={index * 150}>
-                                 <a href={post.url} target="_blank" rel="noopener noreferrer" className="block group relative overflow-hidden rounded-2xl shadow-lg interactive-panel !transform-none">
+                                 <a href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir publicación de Instagram: ${post.caption}`} className="block group relative overflow-hidden rounded-2xl shadow-lg interactive-panel !transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)]">
                                     <img 
                                         src={post.image} 
                                         alt={post.caption} 
-                                        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300" 
+                                        className="w-full h-48 sm:h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-300" 
                                         width="400"
                                         height="320"
                                     />
@@ -87,7 +87,7 @@ const LifestylePage: React.FC = () => {
                     </div>
                      <div className="text-center mt-12">
                         <AnimateOnScroll delay={300}>
-                             <a href={socials.instagram} target="_blank" rel="noopener noreferrer">
+                             <a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver nuestro Instagram" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
                                 <LiquidButton variant="secondary">
                                     <i className="fab fa-instagram mr-2"></i> Síguenos en Instagram
                                 </LiquidButton>
@@ -132,16 +132,16 @@ const LifestylePage: React.FC = () => {
                     <AnimateOnScroll>
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">El Detalle del Lujo</h2>
                     </AnimateOnScroll>
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
                         {lifestyle.facebookPosts.map((post, index) => (
                              <AnimateOnScroll key={post.id} delay={index * 150}>
-                                 <a href={post.url} target="_blank" rel="noopener noreferrer">
+                                 <a href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir publicación de Facebook: ${post.caption}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
                                     <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col group interactive-panel">
                                          <div className="relative">
                                             <img 
                                                 src={post.image} 
                                                 alt={post.caption} 
-                                                className="w-full h-56 object-cover"
+                                                 className="w-full h-40 sm:h-56 object-cover"
                                                 width="400"
                                                 height="224"
                                             />
@@ -158,7 +158,7 @@ const LifestylePage: React.FC = () => {
                     </div>
                      <div className="text-center mt-12">
                         <AnimateOnScroll delay={300}>
-                             <a href={socials.facebook} target="_blank" rel="noopener noreferrer">
+                             <a href={socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Ver nuestro Facebook" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
                                 <LiquidButton variant="secondary">
                                     <i className="fab fa-facebook-f mr-2"></i> Ver más en Facebook
                                 </LiquidButton>

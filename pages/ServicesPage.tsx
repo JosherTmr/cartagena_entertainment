@@ -131,7 +131,7 @@ const ServicesPage: React.FC = () => {
 
                 <section>
                     {filteredServices.length > 0 ? (
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                             {filteredServices.map((service, index) => (
                                 <AnimateOnScroll key={service.id} delay={index * 100}>
                                     <ServiceCard service={service} onSelect={handleSelectService} />
