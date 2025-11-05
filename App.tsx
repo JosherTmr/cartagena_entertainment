@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import BookingBar from './components/BookingBar';
 import StaticBackground from './components/StaticBackground';
 import VideoBackground from './components/VideoBackground';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Lazy load page components for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -133,6 +134,7 @@ const AppContent: React.FC = () => {
                     </div>
                 </div>
             )}
+            <WhatsAppButton />
         </div>
     );
 }
