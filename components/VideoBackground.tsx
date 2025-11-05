@@ -6,7 +6,7 @@ const VideoBackground: React.FC = () => {
             {/* Imagen estática para móviles para reducir consumo */}
             <div
                 className="w-full h-full bg-cover bg-center md:hidden"
-                style={{ backgroundImage: `url('/background.png')` }}
+                style={{ backgroundImage: `url('/Background_movil.jpg')` }}
                 aria-hidden="true"
                 role="img"
             />
