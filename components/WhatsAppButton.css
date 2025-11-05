@@ -9,6 +9,8 @@
     cursor: pointer;
     z-index: 99;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
     -webkit-transform: translateZ(0);
     -webkit-transition: visibility .5s;
     -moz-transition: visibility .5s;
