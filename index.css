@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --color-navy: #211916; /* Licorice */
   --color-keppel: #59b4a3; /* Keppel */
@@ -265,7 +267,7 @@ body {
     .content button {
         box-shadow: 0 0 0 rgba(89, 180, 163, 0); /* Initial shadow state */
     }
-    .content button:hover { 
+    .content button:hover {
         transform: scale(1.05);
         box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Glow effect with new accent color */
     }
