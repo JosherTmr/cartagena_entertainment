@@ -6,6 +6,9 @@ import BookingBar from './components/BookingBar';
 import StaticBackground from './components/StaticBackground';
 import VideoBackground from './components/VideoBackground';
 import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
+import { AnimatePresence } from 'framer-motion';
+import PageTransition from './components/PageTransition';
 
 // Lazy load page components for code-splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -77,14 +80,16 @@ const AppContent: React.FC = () => {
 
                 <main className={`flex-grow ${!isHomePage ? 'pt-20' : ''}`}>
                     <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-white/80">Cargando...</div>}>
-                        <Routes>
-                            <Route path="/" element={<HomePage />} />
-                            <Route path="/services" element={<ServicesPage />} />
-                            <Route path="/destinations" element={<DestinationsPage />} />
-                            <Route path="/lifestyle" element={<LifestylePage />} />
-                            <Route path="/about" element={<AboutPage />} />
-                            <Route path="/license" element={<LicensePage />} />
-                        </Routes>
+                        <AnimatePresence mode="wait">
+                            <Routes location={location} key={location.pathname}>
+                                <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+                                <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+                                <Route path="/destinations" element={<PageTransition><DestinationsPage /></PageTransition>} />
+                                <Route path="/lifestyle" element={<PageTransition><LifestylePage /></PageTransition>} />
+                                <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+                                <Route path="/license" element={<PageTransition><LicensePage /></PageTransition>} />
+                            </Routes>
+                        </AnimatePresence>
                     </Suspense>
                 </main>
                 <Footer />
@@ -142,6 +147,7 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
     return (
         <Router>
+            <ScrollToTop />
             <AppContent />
         </Router>
     );

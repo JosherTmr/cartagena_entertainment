@@ -18,12 +18,12 @@ const DestinationsPage: React.FC = () => {
         title="Destinos en Cartagena e Islas del Rosario | Cartagena Entertainment"
         description="Explora los destinos paradisíacos que ofrecemos, desde la vibrante Cholón hasta la serena Playa Escondida. Planea tu próxima aventura en el Caribe."
       />
-      <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
+      <div className="container mx-auto px-4 py-20">
         <section className="text-center mb-16">
-          <AnimateOnScroll>
+          <AnimateOnScroll animationType="fade">
             <h1 className="text-4xl sm:text-6xl text-white font-display">Destinos Imperdibles</h1>
           </AnimateOnScroll>
-          <AnimateOnScroll delay={200}>
+          <AnimateOnScroll delay={200} animationType="fade">
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
               Explora los tesoros escondidos y los lugares más icónicos que Cartagena y sus alrededores tienen para ofrecer.
             </p>
@@ -33,7 +33,7 @@ const DestinationsPage: React.FC = () => {
         <section>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {destinations.map((destination, index) => (
-              <AnimateOnScroll key={destination.id} delay={index * 150}>
+              <AnimateOnScroll key={destination.id} delay={index * 150} animationType="fade-up">
                 <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col interactive-panel">
                   <img 
                     src={destination.image} 

@@ -117,12 +117,12 @@ const ServicesPage: React.FC = () => {
                 description={description}
                 schema={serviceListSchema}
             />
-            <div className="container mx-auto px-4 pt-16 pb-16 sm:pb-24">
+            <div className="container mx-auto px-4 py-20">
                 <section className="text-center mb-16">
-                    <AnimateOnScroll>
+                    <AnimateOnScroll animationType="fade">
                         <h1 className="text-4xl sm:text-6xl text-white font-display">{title}</h1>
                     </AnimateOnScroll>
-                    <AnimateOnScroll delay={200}>
+                    <AnimateOnScroll delay={200} animationType="fade">
                         <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
                             {description}
                         </p>
@@ -133,13 +133,13 @@ const ServicesPage: React.FC = () => {
                     {filteredServices.length > 0 ? (
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                             {filteredServices.map((service, index) => (
-                                <AnimateOnScroll key={service.id} delay={index * 100}>
+                                <AnimateOnScroll key={service.id} delay={index * 100} animationType="fade-up">
                                     <ServiceCard service={service} onSelect={handleSelectService} />
                                 </AnimateOnScroll>
                             ))}
                         </div>
                     ) : (
-                        <AnimateOnScroll>
+                        <AnimateOnScroll animationType="fade">
                             <div className="text-center py-16">
                                 <i className="fas fa-search text-5xl text-[var(--color-keppel)] mb-4"></i>
                                 <h3 className="text-2xl font-semibold text-white">No se encontraron servicios</h3>

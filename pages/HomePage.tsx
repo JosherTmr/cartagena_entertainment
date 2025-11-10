@@ -59,53 +59,53 @@ const HomePage: React.FC = () => {
       />
 
       <div className="relative z-10">
-        <div className="container mx-auto px-4 py-16 sm:py-24">
+        <div className="container mx-auto px-4 py-20">
           
-          {/* Featured Destinations Section (NUEVA SECCIÓN) */}
+          {/* Featured Destinations Section */}
           <section className="mb-24">
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="fade">
               <h2 className="text-3xl sm:text-5xl text-center text-white mb-12 font-display">Enamórate de nuestros increíbles destinos</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
               {featuredDestinations.map((dest, index) => (
-                <AnimateOnScroll key={dest.id} delay={index * 150}>
+                <AnimateOnScroll key={dest.id} delay={index * 150} animationType="fade-up">
                   <DestinationCard destination={dest} />
                 </AnimateOnScroll>
               ))}
             </div>
           </section>
 
-          {/* Featured Services Section (SECCIÓN REUBICADA) */}
+          {/* Featured Services Section */}
           <section className="mb-24">
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="fade">
               <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Atrevete a vivir experiencias exclusivas</h2>
             </AnimateOnScroll>
-             <AnimateOnScroll>
+             <AnimateOnScroll animationType="zoom-in">
               <FeaturedCarousel services={featuredServices} onSelect={handleSelectService} />
             </AnimateOnScroll>
           </section>
           
           {/* Why Choose Us Section */}
           <section>
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="fade">
               <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">¿Por Qué Elegirnos?</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
-                <AnimateOnScroll delay={0}>
+                <AnimateOnScroll delay={0} animationType="fade-up">
                     <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-gem text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Exclusividad</h3>
                         <p className="text-white/70">Servicios y propiedades de lujo seleccionados para una experiencia única.</p>
                     </GlassPanel>
                 </AnimateOnScroll>
-                <AnimateOnScroll delay={150}>
+                <AnimateOnScroll delay={150} animationType="fade-up">
                     <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-user-shield text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Privacidad y Seguridad</h3>
                         <p className="text-white/70">Máxima discreción y personal de seguridad para tu tranquilidad.</p>
                     </GlassPanel>
                 </AnimateOnScroll>
-                <AnimateOnScroll delay={300}>
+                <AnimateOnScroll delay={300} animationType="fade-up">
                     <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-concierge-bell text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Servicio Personalizado</h3>
