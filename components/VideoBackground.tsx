@@ -20,7 +20,7 @@ const VideoBackground: React.FC = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--color-navy)]">
+        <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--bg-dark)] hero-container">
             {isDesktop ? (
                 <video
                     className="w-full h-full object-cover"
@@ -41,17 +41,17 @@ const VideoBackground: React.FC = () => {
                 />
             )}
             {/* Overlay semitransparente para mejorar la legibilidad del contenido */}
-            <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]"></div>
+            <div className="absolute inset-0 hero-overlay"></div>
 
             {/* Componente de atribución */}
             <div className="absolute bottom-1 right-2 z-10">
-                <p className="text-xs text-white/50">
+                <p className="text-xs text-text-light/50">
                     Video by{' '}
                     <a
                         href="https://coverr.co/es"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-white transition-colors"
+                        className="underline hover:text-text-light transition-colors"
                     >
                         Coverr
                     </a>

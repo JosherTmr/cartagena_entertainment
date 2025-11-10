@@ -6,14 +6,14 @@ import React from 'react';
  */
 const StaticBackground: React.FC = () => {
     return (
-        <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--color-navy)]">
+        <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--bg-dark)] hero-container">
         <div
             className="absolute inset-0 w-full h-full bg-cover bg-center bg-static-main"
             aria-hidden="true"
             role="img"
         />
             {/* A darker overlay to ensure content on top is readable */}
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 hero-overlay"></div>
         </div>
     );
 };

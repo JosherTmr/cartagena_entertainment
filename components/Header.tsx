@@ -30,13 +30,13 @@ const Header: React.FC<HeaderProps> = ({
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
-    const navLinkClasses = "text-white/80 hover:text-white transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded";
-    const activeLinkClasses = "text-[var(--color-keppel)] font-semibold";
+    const navLinkClasses = "text-text-light/80 hover:text-text-light transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded";
+    const activeLinkClasses = "text-[var(--primary)] font-semibold";
     
     const headerClasses = `
         w-full left-0 transition-all duration-300 z-30
         ${isSticky
-            ? 'fixed top-0 bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border-b border-[var(--glass-border)]'
+            ? 'fixed top-0 header-translucent shadow-lg border-b border-[var(--glass-border)]'
             : 'relative bg-transparent'
         }
     `;
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({
             <header className={headerClasses}>
                 <div className="container mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
-                        <NavLink to="/" aria-label={`Ir al inicio - ${companyInfo.name}`} className="text-2xl font-bold text-white flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
+                        <NavLink to="/" aria-label={`Ir al inicio - ${companyInfo.name}`} className="text-2xl font-bold text-text-light flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded">
                             <img src="/Logo_CERP.png" alt={`Logo de ${companyInfo.name}`} className="h-12" />
                         </NavLink>
                         
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({
                             <div className="md:hidden ml-4">
                                 <button 
                                     onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                                    className="text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded"
+                                    className="text-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded"
                                     aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                                     aria-expanded={isMenuOpen}
                                     aria-controls="mobile-menu"
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
 
                 {isMenuOpen && (
-                    <div id="mobile-menu" className="md:hidden bg-[var(--glass-background)] backdrop-blur-md pb-4 px-4">
+                    <div id="mobile-menu" className="md:hidden header-translucent pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)} end>Inicio</NavLink>
                             <NavLink to="/#/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
@@ -125,12 +125,12 @@ const Header: React.FC<HeaderProps> = ({
                         <div className="text-center flex flex-col justify-center items-center py-12 md:py-16">
                             <div className="w-full max-w-[700px]">
                                 <AnimateOnScroll>
-                                    <h1 className="text-4xl md:text-7xl mb-8 md:mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-headings">
+                                    <h1 className="text-4xl md:text-7xl mb-8 md:mb-12 font-headings hero-title">
                                         Atrevete a vivir tu aventura en el corazón del caribe
                                     </h1>
                                 </AnimateOnScroll>
                                 <AnimateOnScroll delay={200}>
-                                    <p className="text-lg md:text-2xl text-white/80">
+                                    <p className="text-lg md:text-2xl text-text-light/80">
                                         Descubre yates exclusivos, mansiones de ensueño y experiencias inolvidables diseñadas solo para ti.
                                     </p>
                                 </AnimateOnScroll>

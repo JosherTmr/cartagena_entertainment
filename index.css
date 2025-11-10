@@ -1,33 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy: #211916; /* Licorice */
-  --color-keppel: #59b4a3; /* Keppel */
-  --color-keppel-light: #57aa80; /* Mint */
-  --glass-background: rgba(33, 25, 22, 0.5); /* Derived from Licorice */
-  --glass-border: rgba(255, 255, 255, 0.1);  /* Subtle white border */
-  --font-headings: 'Playfair Display', serif;
+  /* 🌊 Paleta corporativa */
+  --hookers-green: #486b65;
+  --keppel: #59b4a3;
+  --mint: #57aa80;
+  --celadon: #adedcb;
+  --licorice: #211916;
 
-  --color-text-light: #f0f0f0; /* Light gray for text on dark backgrounds */
-  --color-text-dark: #1a1a1a; /* Dark gray for text on light backgrounds */
+  /* Roles de color */
+  --primary: var(--keppel);
+  --secondary: var(--hookers-green);
+  --accent: var(--mint);
+  --bg-dark: var(--licorice);
+  --bg-light: var(--celadon);
+  --text-light: #f8f9f9;
+  --text-dark: #1a1a1a;
+
+  /* Glassmorphism & Fonts */
+  --glass-background: rgba(72, 107, 101, 0.4); /* hookers-green translúcido */
+  --glass-border: rgba(89, 180, 163, 0.25);  /* keppel border */
+  --font-headings: 'Playfair Display', serif;
 }
 
 html {
-  font-size: 16px; /* Set a base font size */
+  font-size: 16px;
 }
 
 body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--color-text-dark); /* Set a default text color */
-  background-color: #fff; /* Set a default background color */
+  color: var(--text-dark);
+  background-color: var(--bg-dark); /* Default background to dark */
 }
 
 .font-headings {
   font-family: var(--font-headings);
 }
 
+/* Fondos y Overlays */
 .bg-static-main {
   background-image: url('/background.png');
 }
@@ -36,9 +48,48 @@ body {
   background-image: url('/Background_movil.jpg');
 }
 
-/* --- INICIO DE MICROINTERACCIONES --- */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(33, 25, 22, 0.75),  /* licorice oscuro */
+    rgba(72, 107, 101, 0.65) /* hookers-green más fuerte */
+  );
+}
 
-/* Efecto hover para paneles de vidrio interactivos */
+/* Estilo de Header Translúcido */
+.header-translucent {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(33, 25, 22, 0.3);
+}
+
+/* Estilos Hero Section */
+.hero-title {
+  color: var(--celadon); /* #adedcb */
+  text-shadow: 0 2px 6px rgba(33, 25, 22, 0.5); /* sombra sutil */
+}
+
+.hero-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to bottom, transparent, rgba(33, 25, 22, 0.8));
+  z-index: 1; /* Asegura que esté sobre el video/imagen pero debajo del contenido */
+}
+
+/* Estilos Search Box */
+.search-box {
+  background: rgba(33, 25, 22, 0.35); /* más oscuro, resalta sobre el mar */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(173, 237, 203, 0.2); /* borde celadon suave */
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* --- INICIO DE MICROINTERACCIONES --- */
 .interactive-panel {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
@@ -46,25 +97,23 @@ body {
 .interactive-panel:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  border-color: rgba(89, 180, 163, 0.5); /* --color-keppel with alpha */
+  border-color: var(--primary);
 }
 
 
 /* --- INICIO DEL NUEVO CSS RESPONSIVO PARA EL CARRUSEL --- */
-
-/* --- Estilos Base (Mobile First) --- */
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Ancho máximo para móviles grandes */
-  height: 60vh; /* Altura relativa para móviles */
+  max-width: 500px;
+  height: 60vh;
   min-height: 450px;
   max-height: 600px;
   margin: 2rem auto;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  -webkit-tap-highlight-color: transparent; /* Evita el destello al tocar en móviles */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .carousel-container .slide {
@@ -75,8 +124,8 @@ body {
 
 .item {
   position: absolute;
-  width: 100%; /* Ancho completo en móvil */
-  height: 100%; /* Altura completa en móvil */
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   border-radius: 20px;
@@ -117,7 +166,7 @@ body {
   left: 20px;
   right: 20px;
   width: auto;
-  text-align: left; color: var(--color-text-light);
+  text-align: left; color: var(--text-light);
   z-index: 2; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
   opacity: 0;
 }
@@ -144,18 +193,18 @@ body {
 .content .des { margin: 8px 0 16px; font-size: 1rem; }
 .content button {
   padding: 10px 20px; 
-  border: 1px solid transparent;
-  background-color: var(--button-bg); 
-  color: var(--button-text);
+  border: 1px solid var(--primary);
+  background-color: transparent; 
+  color: var(--text-light);
   backdrop-filter: blur(5px); 
   cursor: pointer; 
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 .content button:hover { 
-  background-color: var(--color-accent-light);
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  background-color: var(--primary);
+  color: var(--bg-dark);
+  border-color: var(--primary);
 }
 
 @keyframes content-fade-in-up {
@@ -172,16 +221,17 @@ body {
 
 .button-container button {
     width: 45px; height: 45px; border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border: 1px solid var(--glass-border); 
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px); 
-    color: white; 
+    color: var(--text-light); 
     cursor: pointer; 
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 .button-container button:hover {
-    background-color: var(--button-bg); 
+    background-color: var(--primary); 
+    border-color: var(--celadon);
     transform: scale(1.1);
 }
 
@@ -233,7 +283,7 @@ body {
         z-index: 4;
         opacity: 1;
         transform: translateY(-50%) scale(1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--glass-border);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
@@ -242,13 +292,14 @@ body {
         z-index: 4;
         opacity: 1;
         transform: translateY(-50%) scale(1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--glass-border);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .item.next:hover, .item.next-2:hover {
         transform: translateY(-50%) scale(1.05);
         cursor: pointer;
+        border-color: var(--celadon);
     }
 
     .item.hidden {
@@ -270,12 +321,9 @@ body {
     .content .name { font-size: 2.5rem; }
     .content .des { font-size: 1.1rem; }
     
-    .content button {
-        box-shadow: 0 0 0 rgba(89, 180, 163, 0); /* Initial shadow state */
-    }
     .content button:hover {
         transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Glow effect with new accent color */
+        box-shadow: 0 0 15px var(--primary);
     }
 
     .button-container {
@@ -286,8 +334,8 @@ body {
         border-radius: 12px;
     }
     .button-container button:hover {
-        background-color: var(--button-bg);
-        border-color: var(--color-accent);
+        background-color: var(--primary);
+        border-color: var(--celadon);
     }
 }
 
@@ -295,11 +343,10 @@ body {
 .special-button {
   position: relative;
   z-index: 1;
-  background: var(--glass-background);
-  border: 2px solid;
-  border-color: var(--color-keppel);
+  background: transparent;
+  border: 2px solid var(--primary);
   border-radius: 0.75rem;
-  color: var(--color-keppel);
+  color: var(--primary);
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: 250ms ease-in-out;
@@ -308,13 +355,13 @@ body {
 
 .special-button:hover,
 .special-button:focus {
-  color: #fff;
-  background-color: var(--color-keppel);
+  color: var(--bg-dark);
+  background-color: var(--primary);
   transform: scale(1.05);
 }
 
 .special-button .text {
-  filter: drop-shadow(0 0 2px var(--color-keppel));
+  filter: drop-shadow(0 0 2px var(--primary));
 }
 
 .special-button:after {
@@ -324,7 +371,7 @@ body {
   inset: -2px;
   opacity: 0.6;
   border-radius: inherit;
-  box-shadow: 0 0 1em 0.25em var(--color-keppel);
+  box-shadow: 0 0 1em 0.25em var(--primary);
   transition: 250ms ease-in-out;
   transition-property: opacity, box-shadow;
 }
@@ -332,22 +379,22 @@ body {
 .special-button:hover::after,
 .special-button:focus::after {
   opacity: 1;
-  box-shadow: 0 0 1.5em 0.5em #adedcb;
+  box-shadow: 0 0 1.5em 0.5em var(--celadon);
 }
 
 .nav-link-special {
   position: relative;
-  color: var(--color-accent);
-  font-weight: 500; /* Ligeramente más audaz que el texto normal */
+  color: var(--accent);
+  font-weight: 500;
   transition: text-shadow 0.3s ease;
 }
 
 .nav-link-special:hover,
 .nav-link-special.active-special {
   text-shadow: 
-    0 0 5px var(--color-accent-light),
-    0 0 10px var(--color-accent-light),
-    0 0 15px rgba(0, 123, 255, 0.5); /* Celadon glow */
+    0 0 5px var(--celadon),
+    0 0 10px var(--celadon),
+    0 0 15px var(--celadon);
 }
 
 /* Accessibility improvements */
