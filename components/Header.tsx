@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
         w-full left-0 transition-all duration-300 z-30
         ${isSticky
             ? 'fixed top-0 bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border-b border-[var(--glass-border)]'
-            : 'absolute top-0 bg-transparent'
+            : 'relative bg-transparent'
         }
     `;
 
@@ -119,24 +119,22 @@ const Header: React.FC<HeaderProps> = ({
             </header>
             
             {/* HERO SECTION - RENDERED ONLY ON HOMEPAGE, FADES OUT ON SCROLL */}
-            {isHomePage && (
-                 <div className={`
-                    absolute top-0 left-0 w-full h-screen
-                    transition-opacity duration-500 ease-in-out z-20
-                    ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}
-                 `}>
-                    <div className="container mx-auto px-4 h-full">
-                        <div className="text-center h-full flex flex-col justify-center items-center">
-                             <AnimateOnScroll>
-                                <h1 className="text-4xl md:text-7xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-display">
-                                    Artevete a vivir tu aventura <br /> en el corazón del caribe
-                                </h1>
-                            </AnimateOnScroll>
-                            <AnimateOnScroll delay={200}>
-                                <p className="text-lg md:text-2xl text-white/80 max-w-3xl mx-auto">
-                                    Descubre yates exclusivos, mansiones de ensueño y experiencias inolvidables diseñadas solo para ti.
-                                </p>
-                            </AnimateOnScroll>
+            {isHomePage && !isSticky && (
+                 <div className="w-full">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center flex flex-col justify-center items-center py-12 md:py-16">
+                            <div className="w-full max-w-[700px]">
+                                <AnimateOnScroll>
+                                    <h1 className="text-4xl md:text-7xl mb-8 md:mb-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 font-headings">
+                                        Atrevete a vivir tu aventura en el corazón del caribe
+                                    </h1>
+                                </AnimateOnScroll>
+                                <AnimateOnScroll delay={200}>
+                                    <p className="text-lg md:text-2xl text-white/80">
+                                        Descubre yates exclusivos, mansiones de ensueño y experiencias inolvidables diseñadas solo para ti.
+                                    </p>
+                                </AnimateOnScroll>
+                            </div>
                             <AnimateOnScroll delay={400}>
                                 <div className="mt-8 w-full max-w-5xl">
                                     <BookingBar {...bookingBarProps} isSticky={false} />

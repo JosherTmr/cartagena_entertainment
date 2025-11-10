@@ -7,12 +7,11 @@ import React from 'react';
 const StaticBackground: React.FC = () => {
     return (
         <div className="fixed inset-0 z-0 overflow-hidden bg-[var(--color-navy)]">
-            <div
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('/background.png')` }} // <-- ¡Fuente actualizada aquí!
-                aria-hidden="true"
-                role="img"
-            />
+        <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-static-main"
+            aria-hidden="true"
+            role="img"
+        />
             {/* A darker overlay to ensure content on top is readable */}
             <div className="absolute inset-0 bg-black/70"></div>
         </div>

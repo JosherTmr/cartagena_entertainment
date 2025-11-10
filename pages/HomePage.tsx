@@ -57,8 +57,6 @@ const HomePage: React.FC = () => {
         description="Descubre el máximo lujo en el Caribe. Alquiler de yates, mansiones privadas y experiencias inolvidables en Cartagena y las Islas del Rosario. Vive una aventura sin concesiones."
         schema={websiteSchema}
       />
-      {/* Spacer div to push content below the absolute-positioned hero section in Header */}
-      <div className="h-[80vh] sm:h-[70vh]" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16 sm:py-24">

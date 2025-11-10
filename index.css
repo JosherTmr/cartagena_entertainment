@@ -6,7 +6,7 @@
   --color-keppel-light: #57aa80; /* Mint */
   --glass-background: rgba(33, 25, 22, 0.5); /* Derived from Licorice */
   --glass-border: rgba(255, 255, 255, 0.1);  /* Subtle white border */
-  --font-display: 'BuckwheatTCSans-Painted', sans-serif;
+  --font-headings: 'Playfair Display', serif;
 
   --color-text-light: #f0f0f0; /* Light gray for text on dark backgrounds */
   --color-text-dark: #1a1a1a; /* Dark gray for text on light backgrounds */
@@ -17,17 +17,23 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-text-dark); /* Set a default text color */
   background-color: #fff; /* Set a default background color */
 }
 
-.font-display {
-  font-family: var(--font-display);
-  font-weight: normal; /* Decorative fonts often don't need bolding */
-  letter-spacing: 1px;
+.font-headings {
+  font-family: var(--font-headings);
+}
+
+.bg-static-main {
+  background-image: url('/background.png');
+}
+
+.bg-static-mobile {
+  background-image: url('/Background_movil.jpg');
 }
 
 /* --- INICIO DE MICROINTERACCIONES --- */

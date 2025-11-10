@@ -41,7 +41,7 @@ const VideoBackground: React.FC = () => {
                 />
             )}
             {/* Overlay semitransparente para mejorar la legibilidad del contenido */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]"></div>
 
             {/* Componente de atribución */}
             <div className="absolute bottom-1 right-2 z-10">
