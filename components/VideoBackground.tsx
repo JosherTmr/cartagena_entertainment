@@ -29,7 +29,7 @@ const VideoBackground: React.FC = () => {
                     loop
                     muted
                     playsInline
-                    preload="auto"
+                    preload="metadata" // Cambiado de "auto" a "metadata" para optimizar la carga
                     poster="/background.png"
                 />
             ) : (

@@ -8,6 +8,8 @@ export interface Service {
   image: string;
   icon: string;
   tags: string[];
+  inclusions?: string[];
+  highlights?: { icon: string; text: string; }[];
   lifestyleFocus: string;
 }
 

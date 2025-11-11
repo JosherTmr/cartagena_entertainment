@@ -30,6 +30,10 @@ const Header: React.FC<HeaderProps> = ({
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
+    const handleNavLinkClick = () => {
+        setIsMenuOpen(false);
+    };
+
     const navLinkClasses = "text-text-light/80 hover:text-text-light transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded";
     const activeLinkClasses = "text-[var(--primary)] font-semibold";
     
@@ -101,15 +105,15 @@ const Header: React.FC<HeaderProps> = ({
                 {isMenuOpen && (
                     <div id="mobile-menu" className="md:hidden header-translucent pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
-                            <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)} end>Inicio</NavLink>
-                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Servicios</NavLink>
-                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Destinos</NavLink>
-                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Nosotros</NavLink>
-                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={() => setIsMenuOpen(false)}>Licencia</NavLink>
+                            <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick} end>Inicio</NavLink>
+                            <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Servicios</NavLink>
+                            <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Destinos</NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Nosotros</NavLink>
+                            <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Licencia</NavLink>
                              <NavLink 
                                 to="/lifestyle" 
                                 className="special-button"
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={handleNavLinkClick}
                             >
                                 <span className="text">Estilo de Vida</span>
                             </NavLink>

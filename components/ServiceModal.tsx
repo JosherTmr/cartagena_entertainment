@@ -33,22 +33,6 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
     window.open(`https://wa.me/573000000000?text=${message}`, '_blank');
   };
 
-  const experienceIncludes = [
-    'Capitán y tripulación experta',
-    'Equipo de seguridad certificado',
-    'Sistema de sonido premium',
-    'Bebidas de bienvenida',
-    'Combustible incluido',
-    'Seguro todo riesgo'
-  ];
-
-  const experienceHighlights = [
-    { icon: 'fa-clock', text: 'Flexible: Elige tu horario' },
-    { icon: 'fa-users', text: 'Grupos privados' },
-    { icon: 'fa-star', text: 'Servicio 5 estrellas' },
-    { icon: 'fa-shield-alt', text: '100% seguro' }
-  ];
-
   return (
     <div
       className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in"
@@ -112,7 +96,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
 
               {/* Puntos Destacados de la Experiencia */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {experienceHighlights.map((item, idx) => (
+                {(service.highlights || []).map((item, idx) => (
                   <div 
                     key={idx}
                     className="bg-white/5 hover:bg-white/10 rounded-lg p-4 text-center transition-all duration-300 hover:scale-105 border border-white/10"
@@ -199,8 +183,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
 
                   {activeTab === 'includes' && (
                     <div className="animate-fade-in">
-                      <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
-                        {experienceIncludes.map((item, idx) => (
+                      <div className="grid md:grid-cols-2 gap-x-6 gap-y-3"> 
+                        {(service.inclusions || []).map((item, idx) => (
                           <div 
                             key={idx}
                             className="flex items-center gap-3 text-white/90 hover:text-white transition-colors group"
