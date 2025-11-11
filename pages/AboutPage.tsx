@@ -39,13 +39,13 @@ const AboutPage: React.FC = () => {
     <>
         <SeoManager
             title={`Sobre Nosotros | ${companyInfo.name}`}
-            description={`Conoce la misión, visión y valores de ${companyInfo.name}, tus arquitectos de momentos inolvidables en el corazón del Caribe.`}
+            description={`Conoce la misión, visión y valores de ${companyInfo.name}, tus arquitectos de momentos inolvidables en el corazón del Caribe. Descubre nuestra inspiración y el equipo detrás de las experiencias de lujo.`}
             schema={organizationSchema}
         />
-        <div className="container mx-auto px-4 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 py-16 sm:py-24">
         {/* Sección de Encabezado */}
         <section className="text-center mb-16">
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="zoom-in">
             <h1 className="text-4xl sm:text-6xl text-white font-display">Sobre {companyInfo.name}</h1>
             </AnimateOnScroll>
             <AnimateOnScroll delay={200}>
@@ -56,14 +56,14 @@ const AboutPage: React.FC = () => {
         </section>
 
         <section className="grid md:grid-cols-2 gap-8 items-stretch mb-16">
-            <AnimateOnScroll>
+            <AnimateOnScroll animationType="slide-in-left">
             <GlassPanel className="h-full interactive-panel">
                 <i className="fas fa-bullseye text-4xl text-[var(--color-keppel)] mb-4"></i>
                 <h2 className="text-2xl font-bold mb-3">Nuestra Misión</h2>
                 <p className="text-white/70">{companyInfo.mission}</p>
             </GlassPanel>
             </AnimateOnScroll>
-            <AnimateOnScroll delay={150}>
+            <AnimateOnScroll delay={150} animationType="slide-in-right">
             <GlassPanel className="h-full interactive-panel">
                 <i className="fas fa-eye text-4xl text-[var(--color-keppel)] mb-4"></i>
                 <h2 className="text-2xl font-bold mb-3">Nuestra Visión</h2>
@@ -73,8 +73,8 @@ const AboutPage: React.FC = () => {
         </section>
         
         <section className="grid md:grid-cols-2 gap-8 items-center mb-16">
-            <AnimateOnScroll delay={200}>
-                <GlassPanel className="h-full interactive-panel">
+            <AnimateOnScroll delay={200} animationType="slide-in-left">
+                <GlassPanel className="h-full interactive-panel flex flex-col justify-center">
                     <i className="fas fa-moon text-4xl text-[var(--color-keppel)] mb-4"></i>
                     <h2 className="text-2xl font-bold mb-3">Nuestra Inspiración</h2>
                     <p className="text-white/70">{companyInfo.inspiration}</p>
@@ -82,7 +82,7 @@ const AboutPage: React.FC = () => {
             </AnimateOnScroll>
             <AnimateOnScroll delay={350}>
                 <img 
-                    src="https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                    src="https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Mujer con traje típico del Caribe, reflejando la inspiración cultural de la empresa." 
                     className="rounded-2xl shadow-lg w-full h-full object-cover" 
                     loading="lazy"
@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
 
         <section className="mt-16">
             <AnimateOnScroll>
-            <h2 className="text-4xl font-bold text-center text-white mb-12">Valores que Nos Definen</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-center text-white mb-12 font-display">Valores que Nos Definen</h2>
             </AnimateOnScroll>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {companyInfo.values.map((value, index) => (

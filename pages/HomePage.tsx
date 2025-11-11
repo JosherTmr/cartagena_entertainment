@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
           
           {/* Featured Destinations Section */}
           <section className="mb-24">
-            <AnimateOnScroll animationType="fade">
+            <AnimateOnScroll animationType="zoom-in">
               <h2 className="text-3xl sm:text-5xl text-center text-white mb-12 font-display">Enamórate de nuestros increíbles destinos</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
@@ -87,11 +87,11 @@ const HomePage: React.FC = () => {
           
           {/* Why Choose Us Section */}
           <section>
-            <AnimateOnScroll animationType="fade">
+            <AnimateOnScroll animationType="zoom-in">
               <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">¿Por Qué Elegirnos?</h2>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-3 gap-8">
-                <AnimateOnScroll delay={0} animationType="fade-up">
+                <AnimateOnScroll delay={0} animationType="slide-in-left">
                     <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-gem text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Exclusividad</h3>
@@ -105,7 +105,7 @@ const HomePage: React.FC = () => {
                         <p className="text-white/70">Máxima discreción y personal de seguridad para tu tranquilidad.</p>
                     </GlassPanel>
                 </AnimateOnScroll>
-                <AnimateOnScroll delay={300} animationType="fade-up">
+                <AnimateOnScroll delay={300} animationType="slide-in-right">
                     <GlassPanel className="text-center interactive-panel">
                         <i className="fas fa-concierge-bell text-4xl text-[var(--color-keppel)] mb-4"></i>
                         <h3 className="text-xl font-bold mb-2">Servicio Personalizado</h3>

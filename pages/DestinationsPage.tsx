@@ -20,10 +20,10 @@ const DestinationsPage: React.FC = () => {
       />
       <div className="container mx-auto px-4 py-20">
         <section className="text-center mb-16">
-          <AnimateOnScroll animationType="fade">
+          <AnimateOnScroll animationType="zoom-in">
             <h1 className="text-4xl sm:text-6xl text-white font-display">Destinos Imperdibles</h1>
           </AnimateOnScroll>
-          <AnimateOnScroll delay={200} animationType="fade">
+          <AnimateOnScroll delay={200} animationType="fade-up">
             <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
               Explora los tesoros escondidos y los lugares más icónicos que Cartagena y sus alrededores tienen para ofrecer.
             </p>

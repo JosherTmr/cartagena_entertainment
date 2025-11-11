@@ -52,15 +52,15 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   const getAnimationClasses = (type: AnimationType, visible: boolean): string => {
     const baseClasses = 'transition-all duration-700 ease-out';
     if (visible) {
-        return `${baseClasses} opacity-100 translate-y-0 translate-x-0 scale-100`;
+        return `${baseClasses} opacity-100 translate-y-0 translate-x-0 scale-100 rotate-0`;
     }
     switch (type) {
         case 'fade':
             return `${baseClasses} opacity-0`;
         case 'zoom-in':
-            return `${baseClasses} opacity-0 scale-95`;
+            return `${baseClasses} opacity-0 scale-90`;
         case 'slide-in-left':
-            return `${baseClasses} opacity-0 -translate-x-8`;
+            return `${baseClasses} opacity-0 -translate-x-16`;
         case 'slide-in-right':
             return `${baseClasses} opacity-0 translate-x-8`;
         case 'fade-up':

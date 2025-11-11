@@ -29,7 +29,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
   
   const resetAutoplay = useCallback(() => {
     if (autoplayTimer.current) clearTimeout(autoplayTimer.current);
-    autoplayTimer.current = setTimeout(handleNext, 7000);
+    autoplayTimer.current = setTimeout(handleNext, 5000);
   }, [handleNext]);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
           const shouldLoadImage = positionClass === 'active' || positionClass === 'next' || positionClass === 'next-2';
           return (
           <div
-            key={service.id}
+            key={service.id} 
             className={`item ${positionClass}`}
             style={shouldLoadImage ? { backgroundImage: `url(${service.image})` } : undefined}
             onClick={() => handleItemClick(index)}

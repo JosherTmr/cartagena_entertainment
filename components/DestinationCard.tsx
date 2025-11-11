@@ -16,7 +16,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
   };
 
   return (
-    <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col group interactive-panel">
+    <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col group interactive-panel cursor-pointer">
       <div className="relative overflow-hidden">
         <img
           src={destination.image}

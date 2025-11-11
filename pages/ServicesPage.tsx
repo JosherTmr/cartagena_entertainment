@@ -120,10 +120,10 @@ const ServicesPage: React.FC = () => {
             <div className="container mx-auto px-4 py-20">
                 <section className="text-center mb-16">
                     <AnimateOnScroll animationType="fade">
-                        <h1 className="text-4xl sm:text-6xl text-white font-display">{title}</h1>
+                        <h1 className="text-4xl sm:text-6xl text-white font-display" animationType="zoom-in">{title}</h1>
                     </AnimateOnScroll>
                     <AnimateOnScroll delay={200} animationType="fade">
-                        <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+                        <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">
                             {description}
                         </p>
                     </AnimateOnScroll>
@@ -136,7 +136,7 @@ const ServicesPage: React.FC = () => {
                                 <AnimateOnScroll key={service.id} delay={index * 100} animationType="fade-up">
                                     <ServiceCard service={service} onSelect={handleSelectService} />
                                 </AnimateOnScroll>
-                            ))}
+                            ))} 
                         </div>
                     ) : (
                         <AnimateOnScroll animationType="fade">

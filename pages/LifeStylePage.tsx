@@ -32,11 +32,11 @@ const LifestylePage: React.FC = () => {
             />
             <div className="container mx-auto px-4 py-20">
                 {/* Header Section */}
-                <section className="text-center mb-16">
-                    <AnimateOnScroll animationType="fade">
+                <section className="text-center mb-20">
+                    <AnimateOnScroll animationType="zoom-in">
                         <h1 className="text-4xl sm:text-6xl text-white font-display">Un Estilo de Vida, No Solo un Viaje</h1>
                     </AnimateOnScroll>
-                    <AnimateOnScroll delay={200} animationType="fade">
+                    <AnimateOnScroll delay={200} animationType="fade-up">
                         <p className="mt-4 max-w-3xl mx-auto text-lg text-white/80">
                             Somos arquitectos de momentos inolvidables. Descubre cómo curamos cada detalle para ofrecerte una experiencia que trasciende lo convencional y se convierte en un recuerdo para toda la vida.
                         </p>
@@ -44,7 +44,7 @@ const LifestylePage: React.FC = () => {
                 </section>
                 
                 {/* Google Score Section */}
-                <section className="mb-16">
+                <section className="mb-20">
                      <AnimateOnScroll animationType="zoom-in">
                         <GlassPanel className="max-w-md mx-auto interactive-panel">
                             <div className="flex flex-col items-center text-center">
@@ -62,8 +62,8 @@ const LifestylePage: React.FC = () => {
                 </section>
 
                 {/* Instagram Section */}
-                <section className="mb-16">
-                    <AnimateOnScroll animationType="fade">
+                <section className="mb-20">
+                    <AnimateOnScroll animationType="zoom-in">
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Momentos Exclusivos</h2>
                     </AnimateOnScroll>
                     <div className="grid md:grid-cols-3 gap-6 md:gap-8">
@@ -97,8 +97,8 @@ const LifestylePage: React.FC = () => {
                 </section>
 
                  {/* Google Reviews Section */}
-                <section className="mb-16">
-                    <AnimateOnScroll animationType="fade">
+                <section className="mb-20">
+                    <AnimateOnScroll animationType="zoom-in">
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Lo que Dicen Nuestros Huéspedes</h2>
                     </AnimateOnScroll>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -128,8 +128,8 @@ const LifestylePage: React.FC = () => {
                 </section>
 
                  {/* Facebook Section */}
-                <section className="mb-16">
-                    <AnimateOnScroll animationType="fade">
+                <section className="mb-20">
+                    <AnimateOnScroll animationType="zoom-in">
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">El Detalle del Lujo</h2>
                     </AnimateOnScroll>
                     <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
@@ -169,12 +169,12 @@ const LifestylePage: React.FC = () => {
 
 
                  {/* Architecture of Moments Section */}
-                <section className="mb-16">
-                    <AnimateOnScroll animationType="fade">
+                <section className="mb-20">
+                    <AnimateOnScroll animationType="zoom-in">
                         <h2 className="text-4xl sm:text-5xl text-center text-white mb-12 font-display">Arquitectura de Momentos</h2>
                     </AnimateOnScroll>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <AnimateOnScroll animationType="fade-up">
+                        <AnimateOnScroll animationType="slide-in-left">
                             <GlassPanel className="text-center h-full p-8 interactive-panel">
                                 <i className="fas fa-utensils text-5xl text-[var(--color-keppel)] mb-6"></i>
                                 <h3 className="text-2xl font-bold mb-3">Gastronomía Exclusiva</h3>
@@ -188,7 +188,7 @@ const LifestylePage: React.FC = () => {
                                 <p className="text-white/80">Yates, helicópteros y traslados de lujo para una movilidad sin límites.</p>
                             </GlassPanel>
                         </AnimateOnScroll>
-                         <AnimateOnScroll delay={300} animationType="fade-up">
+                         <AnimateOnScroll delay={300} animationType="slide-in-right">
                              <GlassPanel className="text-center h-full p-8 interactive-panel">
                                 <i className="fas fa-concierge-bell text-5xl text-[var(--color-keppel)] mb-6"></i>
                                 <h3 className="text-2xl font-bold mb-3">Conserjería 24/7</h3>
@@ -199,7 +199,7 @@ const LifestylePage: React.FC = () => {
                 </section>
                 
                 {/* Final CTA */}
-                <section className="text-center mt-16">
+                <section className="text-center mt-20">
                      <AnimateOnScroll animationType="zoom-in">
                          <LiquidButton variant="primary" className="px-10 py-4 text-lg" onClick={() => navigate('/services')}>
                             Vive el Estilo de Vida. ¡Reserva Ahora!
