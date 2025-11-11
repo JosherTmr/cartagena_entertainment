@@ -1,7 +1,7 @@
 import React from 'react';
 import { Service } from '../data/database';
 import GlassPanel from './GlassPanel';
-import LiquidButton from './LiquidButton';
+import GlassButton from './GlassButton';
 
 interface ServiceCardProps {
   service: Service;
@@ -31,13 +31,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
       <div className="p-4 sm:p-6 flex flex-col flex-grow">
         <p className="text-white/70 mb-3 sm:mb-4 flex-grow text-sm sm:text-base">{service.shortDescription}</p>
         <div className="mt-auto">
-            <LiquidButton
+            <GlassButton
               onClick={() => onSelect(service)}
               variant="secondary"
               className="w-full"
             >
               Ver Más Detalles
-            </LiquidButton>
+            </GlassButton>
         </div>
       </div>
     </GlassPanel>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Service } from '../data/database';
 import GlassPanel from './GlassPanel';
+import GlassButton from './GlassButton';
 
 interface ServiceModalProps {
   service: Service | null;
@@ -234,16 +235,16 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose }) => {
                 </p>
               </div>
               <div className="flex gap-3 w-full md:w-auto">
-                <button
+                <GlassButton
                   onClick={handleWhatsAppClick}
-                  className="flex-1 md:flex-initial group relative px-8 py-4 bg-gradient-to-r from-[#59b4a3] to-[#57aa80] text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#59b4a3]/50 hover:scale-105"
+                  variant="primary"
+                  className="flex-1 md:flex-initial px-8 py-4 rounded-xl"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     <i className="fab fa-whatsapp text-xl"></i>
                     Consultar por WhatsApp
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#57aa80] to-[#adedcb] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
+                </GlassButton>
               </div>
             </div>
             <p className="text-center text-white/40 text-xs mt-3">

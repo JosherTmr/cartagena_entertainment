@@ -1,7 +1,7 @@
 // Contenido para tu archivo FeaturedCarousel.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Service } from '../data/database';
-import LiquidButton from './LiquidButton';
+import GlassButton from './GlassButton';
 
 interface FeaturedCarouselProps {
   services: Service[];
@@ -97,23 +97,23 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
             <div className="content">
                 <div className="name">{service.title}</div>
                 <div className="des">{service.shortDescription}</div>
-                <LiquidButton onClick={(e) => { e.stopPropagation(); onSelect(service); }} variant="primary">Ver Detalles</LiquidButton>
+                <GlassButton onClick={(e) => { e.stopPropagation(); onSelect(service); }} variant="primary">Ver Detalles</GlassButton>
             </div>
           </div>
           );
         })}
       </div>
       <div className="button-container">
-        <LiquidButton type="button" className="prev !p-0 w-11 h-11 rounded-full" onClick={handlePrev} aria-label="Anterior" variant="secondary">
+        <GlassButton type="button" className="prev !p-0 w-11 h-11 rounded-full" onClick={handlePrev} aria-label="Anterior" variant="secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-        </LiquidButton>
-        <LiquidButton type="button" className="next !p-0 w-11 h-11 rounded-full" onClick={handleNext} aria-label="Siguiente" variant="secondary">
+        </GlassButton>
+        <GlassButton type="button" className="next !p-0 w-11 h-11 rounded-full" onClick={handleNext} aria-label="Siguiente" variant="secondary">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6" />
           </svg>
-        </LiquidButton>
+        </GlassButton>
       </div>
     </div>
   );

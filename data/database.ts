@@ -131,7 +131,7 @@ export const services: Service[] = [
         "title": "Alquiler de Yates de Lujo",
         "shortDescription": "Reine sobre las aguas del Caribe a bordo de su palacio flotante privado.",
         "fullDescription": "Reclame su soberanía sobre el mar. Nuestras embarcaciones insignia no son simples yates, son santuarios de opulencia equipados con tecnología de punta y un confort sublime. Perfectos para orquestar celebraciones legendarias o para un escape donde el único límite es el horizonte.",
-        "image": "https://images.pexels.com/photos/163236/luxury-yacht-yacht-yachting-yacht-charter-163236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/yate_lujo.png",
         "icon": "fas fa-ship",
         "tags": ["yate", "lujo", "eventos", "islas", "privado"],
         "lifestyleFocus": "El mar es suyo. Vívelo sin límites."
@@ -143,7 +143,7 @@ export const services: Service[] = [
         "title": "Alquiler de Veleros y Catamaranes",
         "shortDescription": "Sincronice con el pulso del océano en una danza silenciosa y elegante a bordo de naves de diseño superior.",
         "fullDescription": "Experimente la quintaesencia de la navegación. Sienta cómo el viento impulsa naves de diseño superior, donde la elegancia atemporal se fusiona con el confort moderno. Ideal para almas que buscan una conexión auténtica con el mar y explorar bahías secretas con una gracia inigualable.",
-        "image": "https://images.pexels.com/photos/989214/pexels-photo-989214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/veleros_catamaranes.png",
         "icon": "fas fa-sailboat",
         "tags": ["velero", "catamaran", "tranquilidad", "exploracion"],
         "lifestyleFocus": "Conecte con el viento, el mar y la exclusividad."
@@ -155,7 +155,7 @@ export const services: Service[] = [
         "title": "Powercats y Botes Deportivos",
         "shortDescription": "Desate la potencia y conquiste el horizonte. Adrenalina pura envuelta en diseño de vanguardia y confort absoluto.",
         "fullDescription": "Para aquellos que viven a un ritmo superior. Nuestra flota de botes deportivos y powercats son bestias de alto rendimiento diseñadas para dominar las olas. Sienta la adrenalina de la velocidad sin sacrificar un ápice de lujo y estabilidad. El poder en su estado más puro.",
-        "image": "https://images.pexels.com/photos/248646/pexels-photo-248646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/powercats.png",
         "icon": "fas fa-jet-ski",
         "tags": ["velocidad", "aventura", "adrenalina", "botes"],
         "lifestyleFocus": "La adrenalina también puede ser un lujo."
@@ -163,11 +163,11 @@ export const services: Service[] = [
       {
           "id": "romance-en-el-mar",
           "category": "Experiencias Exclusivas",
-          "featured": false,
+          "featured": true,
           "title": "Cena Romántica en Yate",
           "shortDescription": "Una velada inolvidable bajo un manto de estrellas para sellar un amor legendario.",
           "fullDescription": "Sorprenda a su pareja con una sinfonía romántica en alta mar. Un yate de lujo se transforma en su nido de amor privado, con un chef exclusivo, decoración sublime y la bahía de Cartagena como telón de fondo. Un momento diseñado para quedar grabado en la eternidad.",
-          "image": "https://images.pexels.com/photos/3779693/pexels-photo-3779693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "image": "/cena_romantica.png",
           "icon": "fas fa-heart",
           "tags": ["romance", "parejas", "cena", "amor y amistad"],
           "lifestyleFocus": "Cree un momento que durará para siempre."
@@ -203,7 +203,7 @@ export const services: Service[] = [
         "title": "Alquiler de Mansiones de Lujo",
         "shortDescription": "Su imperio privado en el corazón del paraíso. Mansiones que son obras de arte arquitectónicas.",
         "fullDescription": "Hospédese en santuarios de diseño y privacidad absoluta. Nuestras mansiones son más que un alojamiento; son declaraciones de poder con vistas espectaculares, piscinas infinitas y un servicio que anticipa cada deseo. Su corte real le espera en el Caribe.",
-        "image": "https://images.pexels.com/photos/259580/pexels-photo-259580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/mansiones.png",
         "icon": "fas fa-house-chimney-window",
         "tags": ["alojamiento", "mansiones", "privacidad", "lujo"],
         "lifestyleFocus": "Su palacio privado en el corazón del Caribe."
@@ -215,7 +215,7 @@ export const services: Service[] = [
         "title": "Alquiler de Automóviles de Alta Gama",
         "shortDescription": "Domine el asfalto con una declaración de poder y elegancia. Nuestra flota de élite es la llave de la ciudad.",
         "fullDescription": "Cada trayecto es una oportunidad para impresionar. Nuestra colección de automóviles de alta gama representa la cima de la ingeniería y el diseño. Muévase con la sofisticación y el poder que le definen, ya sea para una llegada triunfal o para el simple placer de conducir la perfección.",
-        "image": "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/carros_lujo.png",
         "icon": "fas fa-car",
         "tags": ["autos", "transporte", "lujo", "estilo"],
         "lifestyleFocus": "El lujo le acompaña en cada trayecto."
@@ -287,7 +287,7 @@ export const services: Service[] = [
         "title": "Chef Exclusivo a Bordo",
         "shortDescription": "Transforme su yate o mansión en un templo gastronómico. Un maestro culinario dedicado a orquestar sus deseos.",
         "fullDescription": "La alta cocina no tiene límites. Nuestro servicio de Chef Exclusivo es una experiencia sensorial diseñada a medida. Un maestro culinario privado transformará su entorno en el escenario de una performance gastronómica única. Desde menús de degustación que narran historias del Caribe hasta sofisticadas cenas temáticas maridadas a la perfección, cada plato es una obra de arte creada con los ingredientes más sublimes y una ejecución impecable. El lujo supremo, servido directamente en su mesa.",
-        "image": "https://images.pexels.com/photos/3217156/pexels-photo-3217156.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/chef_privado.png",
         "icon": "fas fa-utensils",
         "tags": ["gastronomia", "chef", "gourmet", "exclusivo"],
         "lifestyleFocus": "El sabor del lujo, servido sin concesiones."
@@ -359,7 +359,7 @@ export const services: Service[] = [
         "title": "Paseo Privado por las Islas",
         "shortDescription": "Conquiste el archipiélago a su propio ritmo. Su lancha deportiva privada le espera.",
         "fullDescription": "Diseñe su día perfecto en el mar. Un charter privado en una de nuestras lanchas deportivas de alta gama es la llave para descubrir los secretos del archipiélago de las Islas del Rosario. Con un capitán experto a su disposición, usted dicta el itinerario: desde la vibrante fiesta de Cholón hasta la serenidad de una playa escondida. Equipadas con un potente sistema de sonido y todas las comodidades, estas embarcaciones son el epicentro de su aventura personalizada.",
-        "image": "https://images.pexels.com/photos/7725618/pexels-photo-7725618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "/paseo_yate.png",
         "icon": "fas fa-speedboat",
         "tags": ["lancha", "islas", "tour", "privado", "cholon", "baru", "diversion"],
         "lifestyleFocus": "El archipiélago es su lienzo. Pinte su día perfecto."

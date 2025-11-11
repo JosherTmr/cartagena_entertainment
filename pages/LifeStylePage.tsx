@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import GlassPanel from '../components/GlassPanel';
 import AnimateOnScroll from '../components/AnimateOnScroll';
-import LiquidButton from '../components/LiquidButton';
+import GlassButton from '../components/GlassButton';
 import { companyInfo } from '../data/database';
 import SeoManager from '../components/SeoManager';
 
@@ -88,9 +88,9 @@ const LifestylePage: React.FC = () => {
                      <div className="text-center mt-12">
                         <AnimateOnScroll delay={300} animationType="fade-up">
                              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Ver nuestro Instagram" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
-                                <LiquidButton variant="secondary">
+                                <GlassButton variant="secondary">
                                     <i className="fab fa-instagram mr-2"></i> Síguenos en Instagram
-                                </LiquidButton>
+                                </GlassButton>
                             </a>
                         </AnimateOnScroll>
                     </div>
@@ -119,9 +119,9 @@ const LifestylePage: React.FC = () => {
                      <div className="text-center mt-12">
                         <AnimateOnScroll delay={300} animationType="fade-up">
                              <a href={socials.googleReviews} target="_blank" rel="noopener noreferrer">
-                                <LiquidButton variant="secondary">
+                                <GlassButton variant="secondary">
                                     Ver Todas las Reseñas
-                                </LiquidButton>
+                                </GlassButton>
                             </a>
                         </AnimateOnScroll>
                     </div>
@@ -159,9 +159,9 @@ const LifestylePage: React.FC = () => {
                      <div className="text-center mt-12">
                         <AnimateOnScroll delay={300} animationType="fade-up">
                              <a href={socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Ver nuestro Facebook" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)] rounded">
-                                <LiquidButton variant="secondary">
+                                <GlassButton variant="secondary">
                                     <i className="fab fa-facebook-f mr-2"></i> Ver más en Facebook
-                                </LiquidButton>
+                                </GlassButton>
                             </a>
                         </AnimateOnScroll>
                     </div>
@@ -201,9 +201,9 @@ const LifestylePage: React.FC = () => {
                 {/* Final CTA */}
                 <section className="text-center mt-20">
                      <AnimateOnScroll animationType="zoom-in">
-                         <LiquidButton variant="primary" className="px-10 py-4 text-lg" onClick={() => navigate('/services')}>
+                         <GlassButton variant="primary" className="px-10 py-4 text-lg" onClick={() => navigate('/services')}>
                             Vive el Estilo de Vida. ¡Reserva Ahora!
-                        </LiquidButton>
+                        </GlassButton>
                      </AnimateOnScroll>
                 </section>
 

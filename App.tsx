@@ -78,7 +78,7 @@ const AppContent: React.FC = () => {
                     setDate={setDate}
                 />
 
-                <main className={`flex-grow ${!isHomePage ? 'pt-20' : ''}`}>
+                <main className={`flex-grow ${!isHomePage || isSticky ? 'pt-20' : ''}`}>
                     <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-white/80">Cargando...</div>}>
                         <AnimatePresence mode="wait">
                             <Routes location={location} key={location.pathname}>

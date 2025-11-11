@@ -1,17 +1,31 @@
 import React from 'react';
-import GlassPanel from '../components/GlassPanel';
-import AnimateOnScroll from '../components/AnimateOnScroll';
 import { destinations } from '../data/database';
 import SeoManager from '../components/SeoManager';
+import AnimateOnScroll from '../components/AnimateOnScroll';
+// ¡Importamos el nuevo componente!
+import DestinationCard from '../components/DestinationCard'; // Ajusta la ruta
 
 /**
  * Componente para la página de visualización de destinos.
- *
- * Esta página muestra una lista de los destinos disponibles donde la empresa
- * ofrece servicios. Incluye una barra de búsqueda que permite a los usuarios
- * explorar los servicios filtrando por destino, categoría o fecha.
+ * Muestra los destinos en un layout de "Bento Box" asimétrico.
  */
 const DestinationsPage: React.FC = () => {
+  
+  // --- Asignación de clases del Bento Grid ---
+  // Esto se queda aquí, ya que es la lógica de *esta página* en específico.
+  const bentoGridClasses = [
+    'lg:col-span-2 lg:row-span-2', // 0: Playa Tranquila (Hero 2x2)
+    'lg:col-span-1 lg:row-span-1', // 1: Isla Grande (1x1)
+    'lg:col-span-1 lg:row-span-1', // 2: La Piscina (1x1)
+    'lg:col-span-2 lg:row-span-1', // 3: Beach Club (2x1)
+    'lg:col-span-1 lg:row-span-2', // 4: Cholón (1x2)
+    'lg:col-span-1 lg:row-span-1', // 5: Playa Escondida (1x1)
+    'lg:col-span-2 lg:row-span-1', // 6: Cartagena (2x1)
+    'lg:col-span-2 lg:row-span-1', // 7: Caño Ratón (2x1)
+  ];
+
+  // Las constantes de animación se fueron a DestinationCard.tsx
+
   return (
     <>
       <SeoManager
@@ -30,29 +44,23 @@ const DestinationsPage: React.FC = () => {
           </AnimateOnScroll>
         </section>
 
+        {/* --- CONTENEDOR DEL BENTO GRID --- */}
         <section>
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 auto-rows-[20rem] gap-6">
             {destinations.map((destination, index) => (
-              <AnimateOnScroll key={destination.id} delay={index * 150} animationType="fade-up">
-                <GlassPanel hasPadding={false} className="overflow-hidden h-full flex flex-col interactive-panel">
-                  <img 
-                    src={destination.image} 
-                    alt={`Vista panorámica del destino: ${destination.name}`} 
-                    className="w-full h-64 object-cover" 
-                    loading="lazy"
-                    width="600"
-                    height="256"
-                  />
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-2xl font-semibold mb-2">{destination.name}</h3>
-                    <p className="text-white/70 flex-grow">{destination.description}</p>
-                  </div>
-                </GlassPanel>
-              </AnimateOnScroll>
+              
+              // --- TARJETA BENTO INDIVIDUAL (Modularizada) ---
+              // Usamos el componente e inyectamos las clases de layout
+              <DestinationCard
+                key={destination.id}
+                destination={destination}
+                className={bentoGridClasses[index % bentoGridClasses.length]}
+              />
+
             ))}
           </div>
         </section>
-        {/* Spacer for the fixed mobile booking bar */}
+        
         <div className="h-24 md:hidden" />
       </div>
     </>
