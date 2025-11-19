@@ -73,6 +73,7 @@ const Header: React.FC<HeaderProps> = ({
                             <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
+                            <NavLink to="/coming-soon" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Venta de Botes</NavLink>
                             <NavLink
                                 to="/lifestyle"
                                 className="special-button"
@@ -125,6 +126,7 @@ const Header: React.FC<HeaderProps> = ({
                             <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Destinos</NavLink>
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Licencia</NavLink>
+                            <NavLink to="/coming-soon" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Venta de Botes</NavLink>
                             <NavLink
                                 to="/lifestyle"
                                 className="special-button"

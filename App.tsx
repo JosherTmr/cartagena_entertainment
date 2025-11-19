@@ -17,6 +17,8 @@ const DestinationsPage = lazy(() => import('./pages/DestinationsPage'));
 const LifestylePage = lazy(() => import('./pages/LifeStylePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const LicensePage = lazy(() => import('./pages/LicensePage'));
+const BoatSalesPage = lazy(() => import('./pages/BoatSalesPage'));
+const ComingSoonPage = lazy(() => import('./pages/ComingSoonPage'));
 
 const AppContent: React.FC = () => {
     const location = useLocation();
@@ -24,7 +26,7 @@ const AppContent: React.FC = () => {
     const isHomePage = location.pathname === '/';
     const [isSticky, setIsSticky] = useState(false);
     const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-    
+
     // Centralized state for the booking bar
     const [destination, setDestination] = useState('');
     const [category, setCategory] = useState('');
@@ -67,8 +69,8 @@ const AppContent: React.FC = () => {
             {isHomePage ? <VideoBackground /> : <StaticBackground />}
 
             <div className="relative z-10 flex flex-col flex-grow">
-                <Header 
-                    onSearch={handleSearch} 
+                <Header
+                    onSearch={handleSearch}
                     isSticky={isSticky}
                     destination={destination}
                     setDestination={setDestination}
@@ -88,6 +90,8 @@ const AppContent: React.FC = () => {
                                 <Route path="/lifestyle" element={<PageTransition><LifestylePage /></PageTransition>} />
                                 <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
                                 <Route path="/license" element={<PageTransition><LicensePage /></PageTransition>} />
+                                <Route path="/venta-botes" element={<PageTransition><BoatSalesPage /></PageTransition>} />
+                                <Route path="/coming-soon" element={<PageTransition><ComingSoonPage /></PageTransition>} />
                             </Routes>
                         </AnimatePresence>
                     </Suspense>
@@ -118,7 +122,7 @@ const AppContent: React.FC = () => {
 
             {/* Mobile/Tablet Booking Modal */}
             {isBookingModalOpen && (
-                 <div
+                <div
                     className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex flex-col justify-end p-4 lg:hidden animate-fade-in"
                     onClick={() => setIsBookingModalOpen(false)}
                 >
@@ -126,8 +130,8 @@ const AppContent: React.FC = () => {
                         className="w-full max-w-md mb-20 animate-fade-in-up"
                         onClick={(e) => e.stopPropagation()}
                     >
-                       <BookingBar 
-                            onSearch={handleSearch} 
+                        <BookingBar
+                            onSearch={handleSearch}
                             isSticky={false}
                             destination={destination}
                             setDestination={setDestination}
@@ -135,7 +139,7 @@ const AppContent: React.FC = () => {
                             setCategory={setCategory}
                             date={date}
                             setDate={setDate}
-                       />
+                        />
                     </div>
                 </div>
             )}
