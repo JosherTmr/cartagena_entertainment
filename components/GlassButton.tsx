@@ -23,11 +23,11 @@ const GlassButton: React.FC<GlassButtonProps> = ({
   const baseClasses = `
     block rounded-full text-white font-medium backdrop-blur-sm
     transition-all duration-300 ease-in-out
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--color-navy)]
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-dark
   `;
 
   const variantClasses = {
-    primary: 'bg-[var(--color-keppel)] hover:bg-[var(--color-keppel-light)] focus:ring-[var(--color-keppel)] px-6 py-3 text-base',
+    primary: 'bg-primary hover:bg-primary-dark focus:ring-primary px-6 py-3 text-base',
     secondary: 'bg-white/20 border border-white/30 hover:bg-white/30 focus:ring-white/50 px-5 py-2 text-sm',
   };
 

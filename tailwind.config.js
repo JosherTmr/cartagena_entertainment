@@ -10,16 +10,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#211916',
-        keppel: '#59b4a3',
-        'keppel-light': '#57aa80',
-        'glass-background': 'rgba(33, 25, 22, 0.5)',
-        'glass-border': 'rgba(255, 255, 255, 0.1)',
-        'text-light': '#f0f0f0',
-        'text-dark': '#1a1a1a',
+        primary: 'var(--primary)',
+        'primary-dark': 'var(--primary-dark)',
+        accent: 'var(--accent)',
+        highlight: 'var(--highlight)',
+        'bg-dark': 'var(--bg-dark)',
+        'text-light': 'var(--text-light)',
+        'text-dark': 'var(--text-dark)',
+        'glass-bg': 'var(--glass-bg)',
+        'glass-border': 'var(--glass-border)',
       },
       fontFamily: {
-        display: ['BuckwheatTCSans-Painted', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        serif: ['var(--font-headings)', 'serif'],
+      },
+      backdropBlur: {
+        glass: 'var(--glass-blur)',
+      },
+      boxShadow: {
+        glass: 'var(--glass-shadow)',
       },
     },
   },

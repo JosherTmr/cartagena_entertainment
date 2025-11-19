@@ -8,7 +8,7 @@ import DestinationCard from '../components/DestinationCard';
  * Componente para la página de visualización de destinos.
  */
 const DestinationsPage: React.FC = () => {
-  
+
   // Clases de Bento Grid (se activan solo en lg:)
   const bentoGridClasses = [
     'lg:col-span-2 lg:row-span-2', // Hero
@@ -30,10 +30,10 @@ const DestinationsPage: React.FC = () => {
       <div className="container mx-auto px-4 py-12 md:py-20">
         <section className="text-center mb-10 md:mb-16">
           <AnimateOnScroll animationType="zoom-in">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl text-white font-display">Destinos Imperdibles</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl text-highlight font-serif">Destinos Imperdibles</h1>
           </AnimateOnScroll>
           <AnimateOnScroll delay={200} animationType="fade-up">
-            <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-white/80 px-4">
+            <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-text-light/80 px-4">
               Explora los tesoros escondidos y los lugares más icónicos que Cartagena y sus alrededores tienen para ofrecer.
             </p>
           </AnimateOnScroll>
@@ -48,7 +48,7 @@ const DestinationsPage: React.FC = () => {
           */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[20rem] gap-4 md:gap-6">
             {destinations.map((destination, index) => (
-              
+
               <DestinationCard
                 key={destination.id}
                 destination={destination}
@@ -58,7 +58,7 @@ const DestinationsPage: React.FC = () => {
             ))}
           </div>
         </section>
-        
+
         <div className="h-24 md:hidden" />
       </div>
     </>

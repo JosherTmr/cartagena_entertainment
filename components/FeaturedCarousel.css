@@ -1,0 +1,266 @@
+/* FeaturedCarousel.css */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add rounded corners to the whole container */
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    perspective: 1000px;
+}
+
+.item {
+    width: 240px;
+    height: 360px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+    z-index: 1;
+    overflow: hidden;
+    /* Ensure content respects border radius */
+}
+
+/* Gradient Overlay for Contrast */
+.item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+}
+
+.item.active::after {
+    opacity: 1;
+}
+
+/* --- Posicionamiento de las tarjetas (Desktop) --- */
+
+/* Tarjeta Activa (Primera visible) */
+.item.active {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    border-radius: 0;
+    /* Fills the container, which is rounded */
+    box-shadow: none;
+    z-index: 2;
+}
+
+/* Segunda tarjeta */
+.item.next {
+    left: 50%;
+    z-index: 3;
+}
+
+/* Tercera tarjeta */
+.item.next-2 {
+    left: calc(50% + 260px);
+    z-index: 3;
+}
+
+/* Cuarta tarjeta y más */
+.item.hidden {
+    left: calc(50% + 520px);
+    opacity: 0;
+    z-index: 0;
+}
+
+/* Tarjeta Previa */
+.item.prev {
+    left: -260px;
+    opacity: 0;
+    z-index: 0;
+}
+
+
+/* --- Contenido dentro de la tarjeta activa --- */
+.item .content {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    /* Adjusted for better spacing */
+    width: 450px;
+    text-align: left;
+    color: var(--text-light);
+    transform: translateY(-50%);
+    display: none;
+    z-index: 10;
+}
+
+.item.active .content {
+    display: block;
+    animation: showContent 0.5s 1s ease-in-out 1 forwards;
+    opacity: 0;
+}
+
+@keyframes showContent {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, -50%);
+        filter: blur(0);
+    }
+}
+
+.item .name {
+    font-family: var(--font-headings);
+    font-size: 4.5rem;
+    /* Larger title */
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    /* White text for better contrast on dark gradient */
+}
+
+.item .des {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    /* Removed background box, relying on gradient overlay */
+    background: transparent;
+    padding: 0;
+    backdrop-filter: none;
+    opacity: 0.9;
+}
+
+/* --- Botones de Navegación --- */
+.button-container {
+    position: absolute;
+    bottom: 40px;
+    left: 80px;
+    /* Aligned with content */
+    z-index: 20;
+    text-align: left;
+    display: flex;
+    gap: 16px;
+}
+
+/* --- Responsive (Mobile) --- */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 600px;
+        /* Fixed height for consistency */
+        border-radius: 16px;
+    }
+
+    .item {
+        width: 140px;
+        height: 200px;
+        border-radius: 12px;
+    }
+
+    .item.active {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    /* Stronger gradient for better text readability */
+    .item::after {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    /* Reposition the 'next' item to be less intrusive */
+    .item.next {
+        left: auto;
+        right: 10px;
+        bottom: 20px;
+        top: auto;
+        transform: none;
+        width: 100px;
+        height: 140px;
+        z-index: 20;
+        /* Above the active content background but below text if possible, though here it's just a preview */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        opacity: 0.8;
+    }
+
+    .item.next-2 {
+        display: none;
+    }
+
+    .item .content {
+        left: 20px;
+        right: 20px;
+        width: auto;
+        top: auto;
+        bottom: 40px;
+        /* Give space for buttons if they are at bottom, or just general spacing */
+        transform: none;
+        text-align: left;
+        padding-right: 110px;
+        /* Space for the 'next' card */
+    }
+
+    .item.active .content {
+        animation: showContentMobile 0.5s 0.5s ease-in-out 1 forwards;
+    }
+
+    @keyframes showContentMobile {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+    }
+
+    .item .name {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .item .des {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        -webkit-line-clamp: 4;
+    }
+
+    .button-container {
+        left: 20px;
+        bottom: 20px;
+        /* Hide buttons on mobile if swipe is primary, or position them elsewhere. 
+           Let's keep them but maybe smaller or hidden if swipe is intuitive. 
+           For now, let's hide them to clean up the UI as swipe is implemented. */
+        display: none;
+    }
+}

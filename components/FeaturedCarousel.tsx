@@ -1,5 +1,5 @@
-// Contenido para tu archivo FeaturedCarousel.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import './FeaturedCarousel.css';
 import { Service } from '../data/database';
 import GlassButton from './GlassButton';
 
@@ -26,7 +26,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
     setActiveIndex(prev => (prev - 1 + services.length) % services.length);
     setTimeout(() => { isTransitioning.current = false; }, 500); // Coincide con la duración de la transición en CSS
   }, [services.length]);
-  
+
   const resetAutoplay = useCallback(() => {
     if (autoplayTimer.current) clearTimeout(autoplayTimer.current);
     autoplayTimer.current = setTimeout(handleNext, 5000);
@@ -47,7 +47,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
   const handleTouchEnd = (e: React.TouchEvent) => {
     const touchEndX = e.changedTouches[0].clientX;
     const threshold = 50; // Distancia mínima de swipe en píxeles
-    
+
     if (touchStartX.current - touchEndX > threshold) {
       handleNext();
     } else if (touchEndX - touchStartX.current > threshold) {
@@ -57,7 +57,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
   };
 
   if (!services || services.length === 0) return null;
-  
+
   const getPositionClass = (index: number) => {
     const total = services.length;
     if (index === activeIndex) return 'active';
@@ -70,15 +70,15 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
   const handleItemClick = (index: number) => {
     const position = getPositionClass(index);
     if (position === 'next' || position === 'next-2') {
-        handleNext();
+      handleNext();
     } else if (position === 'prev') {
-        // En la configuración actual, 'prev' no es visible en escritorio, pero se añade por completitud.
-        handlePrev();
+      // En la configuración actual, 'prev' no es visible en escritorio, pero se añade por completitud.
+      handlePrev();
     }
   };
 
   return (
-    <div 
+    <div
       className="carousel-container"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -88,18 +88,18 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({ services, onSelect 
           const positionClass = getPositionClass(index);
           const shouldLoadImage = positionClass === 'active' || positionClass === 'next' || positionClass === 'next-2';
           return (
-          <div
-            key={service.id} 
-            className={`item ${positionClass}`}
-            style={shouldLoadImage ? { backgroundImage: `url(${service.image})` } : undefined}
-            onClick={() => handleItemClick(index)}
-          >
-            <div className="content">
+            <div
+              key={service.id}
+              className={`item ${positionClass}`}
+              style={shouldLoadImage ? { backgroundImage: `url(${service.image})` } : undefined}
+              onClick={() => handleItemClick(index)}
+            >
+              <div className="content">
                 <div className="name">{service.title}</div>
                 <div className="des">{service.shortDescription}</div>
                 <GlassButton onClick={(e) => { e.stopPropagation(); onSelect(service); }} variant="primary">Ver Detalles</GlassButton>
+              </div>
             </div>
-          </div>
           );
         })}
       </div>

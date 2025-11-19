@@ -7,10 +7,10 @@ interface LiquidButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
 }
 
 const LiquidButton: React.FC<LiquidButtonProps> = ({ children, variant = 'primary', className = '', ...props }) => {
-  const baseClasses = "relative overflow-hidden inline-flex items-center justify-center px-6 py-3 font-bold text-text-light rounded-[14px] shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--bg-dark)] hover:-translate-y-[2px] hover:shadow-[0_6px_24px_rgba(0,0,0,0.35)]";
-  
+  const baseClasses = "relative overflow-hidden inline-flex items-center justify-center px-6 py-3 font-bold text-text-light rounded-[14px] shadow-lg transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bg-dark hover:-translate-y-[2px] hover:shadow-glass";
+
   const variantClasses = {
-    primary: "bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] focus:ring-[var(--primary)]",
+    primary: "bg-gradient-to-br from-primary to-accent focus:ring-primary",
     secondary: "bg-text-light/10 hover:bg-text-light/20 border border-text-light/20 focus:ring-text-light/50 backdrop-blur-sm"
   };
 

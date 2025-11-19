@@ -15,8 +15,8 @@ interface HeaderProps {
     setDate: (value: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ 
-    onSearch, 
+const Header: React.FC<HeaderProps> = ({
+    onSearch,
     isSticky,
     destination,
     setDestination,
@@ -31,13 +31,13 @@ const Header: React.FC<HeaderProps> = ({
 
     const handleNavLinkClick = () => setIsMenuOpen(false);
 
-    const navLinkClasses = "text-text-light/80 hover:text-text-light transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded";
-    const activeLinkClasses = "text-[var(--primary)] font-semibold";
-    
+    const navLinkClasses = "text-text-light/80 hover:text-highlight transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded";
+    const activeLinkClasses = "text-primary font-semibold";
+
     const headerClasses = `
         w-full left-0 transition-all duration-300 z-30
         ${isSticky
-            ? 'fixed top-0 header-translucent shadow-lg border-b border-[var(--glass-border)]'
+            ? 'fixed top-0 bg-[#486b65]/85 backdrop-blur-[16px] shadow-glass border-b border-glass-border'
             : 'relative bg-transparent'
         }
     `;
@@ -58,14 +58,14 @@ const Header: React.FC<HeaderProps> = ({
             <header className={headerClasses}>
                 <div className="container mx-auto px-4">
                     <div className="flex justify-between items-center h-20">
-                        <NavLink 
-                            to="/" 
-                            aria-label={`Ir al inicio - ${companyInfo?.name ?? 'Compañía'}`} 
-                            className="text-2xl font-bold text-text-light flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded"
+                        <NavLink
+                            to="/"
+                            aria-label={`Ir al inicio - ${companyInfo?.name ?? 'Compañía'}`}
+                            className="text-2xl font-bold text-text-light flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded"
                         >
                             <img src="/Logo_CERP.png" alt={`Logo de ${companyInfo?.name ?? 'Compañía'}`} className="h-12" />
                         </NavLink>
-                        
+
                         {/* NAVIGATION - DESKTOP */}
                         <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} end>Inicio</NavLink>
@@ -73,14 +73,14 @@ const Header: React.FC<HeaderProps> = ({
                             <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
-                            <NavLink 
-                                to="/lifestyle" 
+                            <NavLink
+                                to="/lifestyle"
                                 className="special-button"
                             >
                                 <span className="text">Estilo de Vida</span>
                             </NavLink>
                         </nav>
-                        
+
                         {/* RIGHT SIDE - BOOKING BAR / MENU */}
                         <div className="flex-grow flex justify-end items-center">
                             {isSticky && (
@@ -91,9 +91,9 @@ const Header: React.FC<HeaderProps> = ({
 
                             {/* MOBILE MENU BUTTON */}
                             <div className="md:hidden ml-4">
-                                <button 
-                                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                                    className="text-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] rounded"
+                                <button
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                    className="text-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded"
                                     aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
                                     aria-expanded={isMenuOpen}
                                     aria-controls="mobile-menu"
@@ -118,15 +118,15 @@ const Header: React.FC<HeaderProps> = ({
 
                 {/* MOBILE MENU */}
                 {isMenuOpen && (
-                    <div id="mobile-menu" className="md:hidden header-translucent pb-4 px-4">
+                    <div id="mobile-menu" className="md:hidden bg-glass-bg backdrop-blur-glass border-b border-glass-border pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick} end>Inicio</NavLink>
                             <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Servicios</NavLink>
                             <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Destinos</NavLink>
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Licencia</NavLink>
-                            <NavLink 
-                                to="/lifestyle" 
+                            <NavLink
+                                to="/lifestyle"
                                 className="special-button"
                                 onClick={handleNavLinkClick}
                             >
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({
                     </div>
                 )}
             </header>
-            
+
             {/* HERO SECTION - ONLY ON HOMEPAGE */}
             {isHomePage && (
                 <div className={`w-full transition-opacity duration-300 ${isSticky ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
