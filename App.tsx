@@ -83,16 +83,18 @@ const AppContent: React.FC = () => {
                 <main className={`flex-grow ${!isHomePage || isSticky ? 'pt-20' : ''}`}>
                     <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-white/80">Cargando...</div>}>
                         <AnimatePresence mode="wait">
-                            <Routes location={location} key={location.pathname}>
-                                <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-                                <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
-                                <Route path="/destinations" element={<PageTransition><DestinationsPage /></PageTransition>} />
-                                <Route path="/lifestyle" element={<PageTransition><LifestylePage /></PageTransition>} />
-                                <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
-                                <Route path="/license" element={<PageTransition><LicensePage /></PageTransition>} />
-                                <Route path="/venta-botes" element={<PageTransition><BoatSalesPage /></PageTransition>} />
-                                <Route path="/coming-soon" element={<PageTransition><ComingSoonPage /></PageTransition>} />
-                            </Routes>
+                            <div key={location.pathname} className="w-full">
+                                <Routes location={location}>
+                                    <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+                                    <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+                                    <Route path="/destinations" element={<PageTransition><DestinationsPage /></PageTransition>} />
+                                    <Route path="/lifestyle" element={<PageTransition><LifestylePage /></PageTransition>} />
+                                    <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
+                                    <Route path="/license" element={<PageTransition><LicensePage /></PageTransition>} />
+                                    <Route path="/venta-botes" element={<PageTransition><BoatSalesPage /></PageTransition>} />
+                                    <Route path="/coming-soon" element={<PageTransition><ComingSoonPage /></PageTransition>} />
+                                </Routes>
+                            </div>
                         </AnimatePresence>
                     </Suspense>
                 </main>
