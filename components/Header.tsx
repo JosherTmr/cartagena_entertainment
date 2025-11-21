@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({
 
     const handleNavLinkClick = () => setIsMenuOpen(false);
 
-    const navLinkClasses = "text-text-light/80 hover:text-highlight transition-colors duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded";
+    const navLinkClasses = "text-text-light/80 hover:text-highlight transition-colors duration-300 text-base lg:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded whitespace-nowrap";
     const activeLinkClasses = "text-primary font-semibold";
 
     const headerClasses = `
@@ -67,31 +67,26 @@ const Header: React.FC<HeaderProps> = ({
                         </NavLink>
 
                         {/* NAVIGATION - DESKTOP */}
-                        <nav className="hidden md:flex items-center gap-x-6 lg:gap-x-8">
+                        <nav className="hidden lg:flex items-center gap-x-3 lg:gap-x-6 xl:gap-x-8">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} end>Inicio</NavLink>
                             <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Servicios</NavLink>
                             <NavLink to="/destinations" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Destinos</NavLink>
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Licencia</NavLink>
                             <NavLink to="/coming-soon" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Venta de Botes</NavLink>
-                            <NavLink
-                                to="/lifestyle"
-                                className="special-button"
-                            >
-                                <span className="text">Estilo de Vida</span>
-                            </NavLink>
+                            <NavLink to="/lifestyle" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`}>Estilo de Vida</NavLink>
                         </nav>
 
-                        {/* RIGHT SIDE - BOOKING BAR / MENU */}
+                        {/* RIGHT SIDE - BOOKING BAR (LARGE SCREENS ONLY) / MENU */}
                         <div className="flex-grow flex justify-end items-center">
                             {isSticky && (
-                                <div className="hidden md:flex items-center transition-opacity duration-300 opacity-100">
+                                <div className="hidden lg:flex items-center transition-opacity duration-300 opacity-100">
                                     <BookingBar {...bookingBarProps} />
                                 </div>
                             )}
 
                             {/* MOBILE MENU BUTTON */}
-                            <div className="md:hidden ml-4">
+                            <div className="lg:hidden ml-4">
                                 <button
                                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                                     className="text-text-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded"
@@ -115,11 +110,18 @@ const Header: React.FC<HeaderProps> = ({
                             </div>
                         </div>
                     </div>
+
+                    {/* BOOKING BAR - SECOND ROW FOR MEDIUM SCREENS */}
+                    {isSticky && (
+                        <div className="hidden md:flex lg:hidden justify-center items-center py-3 border-t border-glass-border/30">
+                            <BookingBar {...bookingBarProps} />
+                        </div>
+                    )}
                 </div>
 
                 {/* MOBILE MENU */}
                 {isMenuOpen && (
-                    <div id="mobile-menu" className="md:hidden bg-glass-bg backdrop-blur-glass border-b border-glass-border pb-4 px-4">
+                    <div id="mobile-menu" className="lg:hidden bg-glass-bg backdrop-blur-glass border-b border-glass-border pb-4 px-4">
                         <nav className="flex flex-col items-center space-y-4 pt-4">
                             <NavLink to="/" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick} end>Inicio</NavLink>
                             <NavLink to="/services" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Servicios</NavLink>
@@ -127,13 +129,7 @@ const Header: React.FC<HeaderProps> = ({
                             <NavLink to="/about" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Nosotros</NavLink>
                             <NavLink to="/license" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Licencia</NavLink>
                             <NavLink to="/coming-soon" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Venta de Botes</NavLink>
-                            <NavLink
-                                to="/lifestyle"
-                                className="special-button"
-                                onClick={handleNavLinkClick}
-                            >
-                                <span className="text">Estilo de Vida</span>
-                            </NavLink>
+                            <NavLink to="/lifestyle" className={({ isActive }) => `${navLinkClasses} ${isActive ? activeLinkClasses : ''}`} onClick={handleNavLinkClick}>Estilo de Vida</NavLink>
                         </nav>
                     </div>
                 )}
