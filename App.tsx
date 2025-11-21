@@ -68,7 +68,7 @@ const AppContent: React.FC = () => {
             {/* Render backgrounds based on page */}
             {isHomePage ? <VideoBackground /> : <StaticBackground />}
 
-            <div className="relative z-10 flex flex-col flex-grow">
+            <div className="relative z-10 flex flex-col grow">
                 <Header
                     onSearch={handleSearch}
                     isSticky={isSticky}
@@ -80,7 +80,7 @@ const AppContent: React.FC = () => {
                     setDate={setDate}
                 />
 
-                <main className={`flex-grow ${!isHomePage || isSticky ? 'pt-20' : ''}`}>
+                <main className={`grow ${!isHomePage || isSticky ? 'pt-20' : ''}`}>
                     <Suspense fallback={<div className="w-full h-screen flex items-center justify-center text-white/80">Cargando...</div>}>
                         <AnimatePresence mode="wait">
                             <div key={location.pathname} className="w-full">
@@ -108,7 +108,7 @@ const AppContent: React.FC = () => {
                 onClick={() => setIsBookingModalOpen(true)}
                 aria-label="Abrir barra de búsqueda"
             >
-                <div className="bg-[var(--glass-background)] backdrop-blur-lg shadow-lg border border-[var(--glass-border)] rounded-full flex items-center p-2 px-4 justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-keppel)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-navy)]">
+                <div className="bg-(--glass-background) backdrop-blur-lg shadow-lg border border-(--glass-border) rounded-full flex items-center p-2 px-4 justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-keppel) focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-navy)">
                     <div className="flex items-center gap-3 text-sm text-white/80">
                         <span>📍 Destino</span>
                         <span className="border-l border-white/20 h-4"></span>
@@ -116,7 +116,7 @@ const AppContent: React.FC = () => {
                         <span className="border-l border-white/20 h-4"></span>
                         <span>📅 Fecha</span>
                     </div>
-                    <div className="bg-[var(--color-keppel)] rounded-full w-11 h-11 flex items-center justify-center flex-shrink-0 ml-2">
+                    <div className="bg-(--color-keppel) rounded-full w-11 h-11 flex items-center justify-center shrink-0 ml-2">
                         <i className="fas fa-search text-white"></i>
                     </div>
                 </div>

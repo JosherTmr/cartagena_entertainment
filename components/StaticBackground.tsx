@@ -6,7 +6,7 @@ import React from 'react';
  */
 const StaticBackground: React.FC = () => {
     return (
-        <div className="fixed top-0 left-0 w-full h-[100vh] z-0 overflow-hidden bg-[var(--bg-dark)] hero-container">
+        <div className="fixed top-0 left-0 w-full h-screen z-0 overflow-hidden bg-(--bg-dark) hero-container">
             <div
                 className="absolute inset-0 w-full h-full bg-cover bg-center bg-static-main"
                 aria-hidden="true"

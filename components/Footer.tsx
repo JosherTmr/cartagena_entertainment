@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     return (
         <footer className="mt-16">
             <div className="container mx-auto px-4">
-                <div className="bg-[#486b65]/85 backdrop-blur-[16px] border-t border-glass-border shadow-glass rounded-t-2xl">
+                <div className="bg-[#486b65]/85 backdrop-blur-lg border-t border-glass-border shadow-glass rounded-t-2xl">
                     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-sm text-text-light/60">&copy; {year} {companyInfo.name}. Todos los derechos reservados.</p>
                         <div className="flex space-x-6">

@@ -20,7 +20,7 @@ const VideoBackground: React.FC = () => {
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 w-full h-[100vh] z-0 overflow-hidden bg-[var(--bg-dark)] hero-container">
+        <div className="fixed top-0 left-0 w-full h-screen z-0 overflow-hidden bg-(--bg-dark) hero-container">
             {isDesktop ? (
                 <video
                     className="w-full h-full object-cover"

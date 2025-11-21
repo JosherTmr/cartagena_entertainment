@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({
                         <NavLink
                             to="/"
                             aria-label={`Ir al inicio - ${companyInfo?.name ?? 'Compañía'}`}
-                            className="text-2xl font-bold text-text-light flex-shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded"
+                            className="text-2xl font-bold text-text-light shrink-0 mr-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-dark rounded"
                         >
                             <img src="/Logo_CERP.png" alt={`Logo de ${companyInfo?.name ?? 'Compañía'}`} className="h-12" />
                         </NavLink>
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({
                         </nav>
 
                         {/* RIGHT SIDE - BOOKING BAR (LARGE SCREENS ONLY) / MENU */}
-                        <div className="flex-grow flex justify-end items-center">
+                        <div className="grow flex justify-end items-center">
                             {isSticky && (
                                 <div className="hidden lg:flex items-center transition-opacity duration-300 opacity-100">
                                     <BookingBar {...bookingBarProps} />
